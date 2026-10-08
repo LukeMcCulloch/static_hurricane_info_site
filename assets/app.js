@@ -200,12 +200,18 @@
     });
   }
 
+  function panels(host, n) {
+    host.innerHTML = "";
+    return d3.range(n).map(() => { const el = document.createElement("div"); el.className = "chart"; host.appendChild(el); return el; });
+  }
+
   // ---- Fig 2: where they split ---------------------------------------------
   function figSplit() {
     const host = document.getElementById("fig-split"); if (!host) return;
-    host.innerHTML = "";
-    [24, 36, 48].forEach(tau => {
-      const el = document.createElement("div"); el.className = "chart"; host.appendChild(el);
+    // Create every panel before drawing any, so each measures its final grid width.
+    const els = panels(host, 3);
+    [24, 36, 48].forEach((tau, i) => {
+      const el = els[i];
       const m = { t: 40, r: 14, b: 34, l: 118 };
       const rows = FAMS.filter(f => f.id !== "base");
       const F = frame(el, .9, 250, 300, m);
@@ -312,9 +318,9 @@
   // ---- Fig 5: is the spread unusual? ---------------------------------------
   function figSpread() {
     const host = document.getElementById("fig-spread"); if (!host) return;
-    host.innerHTML = "";
-    [24, 48, 72].forEach(tau => {
-      const el = document.createElement("div"); el.className = "chart"; host.appendChild(el);
+    const els = panels(host, 3);
+    [24, 48, 72].forEach((tau, i) => {
+      const el = els[i];
       const m = { t: 44, r: 14, b: 38, l: 34 };
       const F = frame(el, .7, 210, 260, m);
       const arr = CL.spread[tau], me = CL.storm[tau].sd, cap = 25;
