@@ -1,4 +1,4 @@
-# Local preview server: powershell -ExecutionPolicy Bypass -File toolsserve.ps1 -Root <repo path>   then open http://localhost:8765/
+# Local preview server: powershell -ExecutionPolicy Bypass -File tools/serve.ps1 -Root <repo path>   then open http://localhost:8765/
 param([string]$Root, [int]$Port = 8765)
 $types = @{ ".html"="text/html; charset=utf-8"; ".css"="text/css"; ".js"="application/javascript"; ".json"="application/json"; ".csv"="text/csv"; ".md"="text/plain" }
 $l = New-Object System.Net.HttpListener
