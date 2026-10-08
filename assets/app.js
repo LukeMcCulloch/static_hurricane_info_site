@@ -4,7 +4,9 @@
   "use strict";
   if (!window.d3 || !window.ATCF || !window.CLIM) return;
 
-  const CYC = "2026100812", PREV = "2026100806";
+  // Cycles come from data/current.js (see tools/UPDATE.md).
+  const CUR = window.CURRENT || { cycle: "2026100812", prev: "2026100806" };
+  const CYC = CUR.cycle, PREV = CUR.prev;
   const A = ATCF[CYC], P = ATCF[PREV], CL = CLIM;
 
   const FAMS = [
