@@ -15,6 +15,10 @@ https://lukemcculloch.github.io/static_hurricane_info_site/ . Updates follow
   data in this cycle. Nothing carries over unchecked. Every model description needs a
   source, or must be checked against the data itself. If a claim can't be verified,
   soften it or remove it. Say plainly in the commit message or report what changed.
+- **Official sources only.** Forecasts, warnings and impacts from NWS/NHC; model data from NOAA's
+  ATCF files; evacuation orders from official government emergency management (governor, county
+  EMAs). No news or social media. Quote official text exactly, write "not stated" rather than
+  infer, and flag errors in a source instead of silently fixing them.
 - **Tone:** factual, calm, no hype, uncertainty stated. Spend more words on what went
   right than on what went wrong. Not a forecast; always point to NHC for decisions.
 - **Always `git pull --rebase` first.** Another machine may also edit this repo.
