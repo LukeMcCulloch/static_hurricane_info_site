@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Isaias Methods &amp; Data</title>
+<meta name="description" content="Data sources, processing, verification method and references for the Isaias model-by-model analysis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+  <header class="mast">
+    <a class="brand" href="./">AL092026 · ISAIAS</a>
+    <nav aria-label="Site">
+      <a href="./">Analysis</a>
+      <a href="models.html">Model key</a>
+      <a href="methods.html" aria-current="page">Methods &amp; data</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p class="stamp">How every number was made</p>
+    <h1>Methods &amp; data</h1>
+    <p class="dek">Everything on this site comes from NOAA's public hurricane data files and short shell scripts in the repository, which anyone can rerun.</p>
+  </div>
+
+  <section>
+    <div class="prose">
+      <h2>Data</h2>
+      <ul>
+        <li><b>Model aids (a-deck).</b> <a href="https://ftp.nhc.noaa.gov/atcf/aid_public/">ftp.nhc.noaa.gov/atcf/aid_public/aal092026.dat.gz</a>, the file NHC publishes with every model forecast for this storm. The analysis uses the 12Z 8 Oct 2026 cycle. The 06Z cycle supplies the raw GEFS members and Google DeepMind's raw run (GDMN).</li>
+        <li><b>Best track (b-deck).</b> <a href="https://ftp.nhc.noaa.gov/atcf/btk/">ftp.nhc.noaa.gov/atcf/btk/bal092026.dat</a>. For a live storm this is the operational best track, which is preliminary and is revised after the season.</li>
+        <li><b>Past seasons.</b> <a href="https://ftp.nhc.noaa.gov/atcf/archive/">ftp.nhc.noaa.gov/atcf/archive/</a>: all Atlantic a-decks and final best tracks for 2023, 2024 and 2025.</li>
+        <li><b>Map.</b> Natural Earth coastlines and U.S. Census state boundaries, via the <code>world-atlas</code> and <code>us-atlas</code> packages.</li>
+      </ul>
+      <p>The file formats are documented in the <a href="https://www.nrlmry.navy.mil/atcf_web/docs/database/new/abdeck.txt">ATCF a/b-deck specification</a>. Wind speeds are 1-minute sustained winds in knots. Rows repeat once per wind-radii threshold, so we keep the first row for each aid and forecast hour. A value of 0 kt means either no value or a dissipated system, and we drop it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="prose">
+      <h2>Which aids are shown</h2>
+      <p>Fig. 1 shows the early (interpolated) aids NHC forecasters have at forecast time: <code>OFCL HCCA IVCN HFAI HFBI HWFI HMNI CTCI AVNI AEMI UKX2 CEM2 SHIP DSHP LGEM GDMI NNIC OCD5</code>. The 12-h-old duplicates (<code>HFA2</code>, <code>HWF2</code>, <code>GDM2</code>) are left out to reduce clutter. Model families follow how each model works, as described on the <a href="models.html">model key</a>.</p>
+      <p>The official forecast shown is <code>OFCL</code> for the 12Z cycle, issued with the 15Z advisory. Many published intensity plots show <code>OFCI</code> instead, the previous advisory's forecast interpolated forward. For Isaias at 12Z, OFCI peaks at 82 kt and OFCL at 95 kt.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="prose">
+      <h2>Historical NHC intensity error</h2>
+      <p>To put an empirical uncertainty band on the official forecast (Fig. 1), we verified every NHC official forecast from 2023–2025 against the final best track. A forecast counts only when the system was a tropical or subtropical cyclone at both the start and the verifying time, roughly as NHC does in its own verification. Error is official minus observed. The table lists absolute-error quantiles.</p>
+    </div>
+    <div class="scroll">
+      <table class="data">
+        <thead><tr><th>Lead time</th><th>Forecasts</th><th>Mean abs. error</th><th>Mean bias</th><th>Median</th><th>67th pct</th><th>90th pct</th></tr></thead>
+        <tbody>
+          <tr><td>+12 h</td><td>930</td><td>5.1 kt</td><td>+0.8</td><td>5</td><td>5</td><td>10</td></tr>
+          <tr><td>+24 h</td><td>829</td><td>7.6 kt</td><td>+0.9</td><td>5</td><td>10</td><td>15</td></tr>
+          <tr><td>+36 h</td><td>737</td><td>9.2 kt</td><td>+0.5</td><td>5</td><td>10</td><td>20</td></tr>
+          <tr><td>+48 h</td><td>654</td><td>10.6 kt</td><td>+0.2</td><td>10</td><td>10</td><td>25</td></tr>
+          <tr><td>+60 h</td><td>575</td><td>11.5 kt</td><td>−0.1</td><td>10</td><td>15</td><td>25</td></tr>
+          <tr><td>+72 h</td><td>502</td><td>12.5 kt</td><td>+0.4</td><td>10</td><td>15</td><td>30</td></tr>
+          <tr><td>+96 h</td><td>382</td><td>13.4 kt</td><td>+0.9</td><td>10</td><td>15</td><td>30</td></tr>
+          <tr><td>+120 h</td><td>293</td><td>14.4 kt</td><td>+0.4</td><td>10</td><td>20</td><td>30</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p class="small">The quantiles are coarse because NHC forecasts and best-track intensities are rounded to 5 kt. These are all-storm errors. Errors for storms approaching land, or undergoing rapid intensification, can be larger. Treat the band in Fig. 1 as "typical official error," not a probability forecast for Isaias. As a check, the mean absolute errors are close to the magnitudes NHC reports in its <a href="https://www.nhc.noaa.gov/verification/">official verification</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="prose">
+      <h2>Spread climatology</h2>
+      <p>Model spread is the sample standard deviation of the forecast intensity across a fixed set of eight aids, all present every season from 2023 to 2025: <code>HFAI HFBI HWFI HMNI CTCI AVNI DSHP LGEM</code>. A cycle and lead time count when at least six of the eight have a forecast. Fig. 5 compares Isaias's 12Z spread with every cycle that began at hurricane strength (official intensity at least 64 kt at the start): 371, 365 and 344 cycles at +24, +48 and +72 h.</p>
+      <p>Choices that would change the answer: a different aid set, including weaker storms (across all cycles, Isaias ranks in the 77th, 43rd and 32nd percentiles), or conditioning on cycles near landfall. We did not condition on landfall. Spread in knots naturally shrinks as storms weaken over land.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="prose">
+      <h2>Reproduce it</h2>
+      <p>Requires <code>bash</code>, <code>curl</code> and GNU <code>awk</code>, for example Git Bash on Windows.</p>
+    </div>
+    <div class="scroll"><pre class="mono" style="margin:0;background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:14px;font-size:.85rem">tools/build_data.sh al092026 ISAIAS 2026100812
+tools/build_data.sh al092026 ISAIAS 2026100806
+tools/spread_climatology.sh 2023 2024 2025
+tools/official_errors.sh 2023 2024 2025
+tools/summarize.sh al092026 2026100812</pre></div>
+  </section>
+
+  <section id="refs">
+    <div class="prose">
+      <h2>References</h2>
+      <ol class="refs">
+        <li>NOAA/NHC. <a href="https://repository.library.noaa.gov/view/noaa/47867">The National Hurricane Center Tropical Cyclone Model Guidance Suite</a>. Interpolated (early) aids, consensus aids, SHIPS, LGEM, NNIC and NNIB.</li>
+        <li>NHC. <a href="https://www.nhc.noaa.gov/verification/">Forecast verification</a>. Annual official and model verification reports.</li>
+        <li>Frontiers in Earth Science (2024). <a href="https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2024.1399409">Paper on HAFS, NOAA's Hurricane Analysis and Forecast System</a>, which replaced HWRF and HMON in 2023.</li>
+        <li>NOAA AOML. <a href="https://www.aoml.noaa.gov/hurricane-weather-research-forecast-model/">Hurricane Weather Research and Forecast model (HWRF)</a>.</li>
+        <li>Google DeepMind. <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext cyclone model</a> (developer's account).</li>
+        <li>M. Lowry. <a href="https://michaelrlowry.substack.com/p/this-hurricane-season-two-forecast">This hurricane season, two forecast models stand out</a>. Summarizes J. Franklin's 2025 season verification.</li>
+        <li>Brightband. <a href="https://www.brightband.com/blog/how-did-google-deepmind-perform-during-the-2025-atlantic-hurricane-season-ai-models-discussion">How did Google DeepMind perform during the 2025 Atlantic hurricane season?</a></li>
+        <li>NRL. <a href="https://www.nrlmry.navy.mil/atcf_web/docs/database/new/abdeck.txt">ATCF a-deck and b-deck format</a>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Unofficial analysis, not a forecast.</b> Corrections are welcome as <a href="https://github.com/LukeMcCulloch/static_hurricane_info_site/issues">GitHub issues</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

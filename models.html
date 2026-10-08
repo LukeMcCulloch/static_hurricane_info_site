@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hurricane Model Key</title>
+<meta name="description" content="What the four-letter hurricane model codes mean (OFCI, HCCA, HFAI, AVNI, SHIP, GDMI and more), grouped by physics, statistical and AI approaches.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+  <header class="mast">
+    <a class="brand" href="./">AL092026 · ISAIAS</a>
+    <nav aria-label="Site">
+      <a href="./">Analysis</a>
+      <a href="models.html" aria-current="page">Model key</a>
+      <a href="methods.html">Methods &amp; data</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p class="stamp">Reference · works for any Atlantic storm</p>
+    <h1>Hurricane model key</h1>
+    <p class="dek">Intensity plots on Tropical Tidbits and elsewhere show a dozen lines labeled with four-letter codes. This key sorts the common codes by how each model works.</p>
+  </div>
+
+  <section>
+    <div class="prose">
+      <h2>Reading the code</h2>
+      <p>Most aids on a spaghetti plot are early versions of slower models. A trailing <code>I</code> means the previous run (6 h old) has been shifted in time and adjusted to start at the storm's observed position and intensity. A trailing <code>2</code> means the same adjustment applied to a run 12 h old. <code>HFAI</code> and <code>HFA2</code> are therefore the same model, one cycle apart. The raw, unadjusted output usually has its own code, for example <code>GDMN</code> for Google DeepMind or <code>HFSA</code> for HAFS-A.</p>
+      <p class="small">Physics: solves the equations of fluid flow and thermodynamics on a grid. Statistical: regression on predictors from past storms. AI: a model learned from historical data, which solves no physical equations when it runs.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="keygrid">
+      <div class="keycard" style="--c:var(--f-official)">
+        <h3>NHC official</h3>
+        <p>The human forecast, informed by everything below. Plan around this one.</p>
+        <dl>
+          <div><dt>OFCL</dt><dd>NHC official forecast for the current advisory.</dd></div>
+          <div><dt>OFCI</dt><dd>The previous official forecast, interpolated. This is what most intensity plots show, so it lags the current advisory by one cycle.</dd></div>
+        </dl>
+      </div>
+
+      <div class="keycard" style="--c:var(--f-consensus)">
+        <h3>Consensus</h3>
+        <p>Averages of several models usually beat any single model.</p>
+        <dl>
+          <div><dt>IVCN</dt><dd>Intensity consensus: an average of several aids.</dd></div>
+          <div><dt>HCCA</dt><dd>HFIP Corrected Consensus Approach. A weighted average with each member's historical biases removed. It is among the most skillful intensity aids in NHC's annual verifications.</dd></div>
+        </dl>
+      </div>
+
+      <div class="keycard" style="--c:var(--f-regional)">
+        <h3>Regional physics</h3>
+        <p>Hurricane-specific models with nested grids that follow the storm, coupled to an ocean model. They resolve the eyewall, so they are the physics models built to forecast peak intensity.</p>
+        <dl>
+          <div><dt>HFAI / HFA2 · HFBI</dt><dd>HAFS-A and HAFS-B, NOAA's Hurricane Analysis and Forecast System. Two configurations with different physics. Operational since 2023.</dd></div>
+          <div><dt>HWFI / HWF2 · HMNI</dt><dd>HWRF and HMON, NOAA's previous-generation hurricane models, which HAFS replaced as the primary system. Their output still appears in NHC's 2026 model file.</dd></div>
+          <div><dt>CTCI</dt><dd>COAMPS-TC, the U.S. Navy's regional hurricane model.</dd></div>
+        </dl>
+      </div>
+
+      <div class="keycard" style="--c:var(--f-global)">
+        <h3>Global physics</h3>
+        <p>Whole-planet weather models. Strong on steering and track. With grids of roughly 9–25 km they can't resolve a tight inner core, so they usually forecast peak winds too low.</p>
+        <dl>
+          <div><dt>AVNI</dt><dd>GFS, NOAA's global model. AVN is its historical name.</dd></div>
+          <div><dt>AEMI</dt><dd>GEFS ensemble mean: the average of NOAA's 31-member global ensemble.</dd></div>
+          <div><dt>UKX2 / UKXI</dt><dd>UK Met Office global model.</dd></div>
+          <div><dt>CEM2 / CMC2</dt><dd>Environment and Climate Change Canada's global model.</dd></div>
+          <div><dt>EMXI</dt><dd>ECMWF, the European model. Shown on some plots, but not in NOAA's public model file.</dd></div>
+        </dl>
+      </div>
+
+      <div class="keycard" style="--c:var(--f-stat)">
+        <h3>Statistical &amp; statistical-dynamical</h3>
+        <p>Regression on environmental predictors such as wind shear, sea-surface temperature, ocean heat content and humidity, taken from GFS forecasts and fitted to decades of past storms. Hard to beat on average. They rarely predict rapid intensification.</p>
+        <dl>
+          <div><dt>SHIP</dt><dd>SHIPS. Has no land in it, so it stays strong after landfall by design.</dd></div>
+          <div><dt>DSHP</dt><dd>Decay-SHIPS. SHIPS with an empirical weakening rate over land.</dd></div>
+          <div><dt>LGEM</dt><dd>Logistic Growth Equation Model. The same predictors, with growth limited by the storm's theoretical maximum intensity.</dd></div>
+          <div><dt>OCD5</dt><dd>Climatology and persistence. A no-skill baseline: what history alone predicts.</dd></div>
+        </dl>
+      </div>
+
+      <div class="keycard" style="--c:var(--f-ai)">
+        <h3>AI &amp; machine learning</h3>
+        <p>Learned from historical data and very fast to run. They are new to operations, and their track record covers only a few seasons.</p>
+        <dl>
+          <div><dt>GDMI / GDM2 · GDMN</dt><dd>Google DeepMind's cyclone model (WeatherNext). NHC used it experimentally in 2025. Preliminary reviews, including one by former NHC branch chief James Franklin, ranked it at or near the top of the guidance for track and intensity that season.</dd></div>
+          <div><dt>NNIC · NNIB</dt><dd>Neural-network intensity consensus. A small neural network that combines other aids (in 2021: HWFI, AVNI, DSHP and LGEM) with environmental predictors. NNIB is the equal-weight average of the same inputs, used as its baseline. Experimental.</dd></div>
+        </dl>
+      </div>
+    </div>
+    <p class="small col">Sources for each entry are listed on the <a href="methods.html#refs">Methods &amp; data</a> page.</p>
+  </section>
+
+  <footer>
+    <p><b>Unofficial reference, not a forecast.</b> For forecasts, watches and warnings, use the <a href="https://www.nhc.noaa.gov" target="_blank" rel="noopener">National Hurricane Center</a>.</p>
+  </footer>
+</div>
+</body>
+</html>
