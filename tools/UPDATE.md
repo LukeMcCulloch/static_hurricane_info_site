@@ -35,3 +35,17 @@ forecast (OFCL) for a cycle appears in the a-deck about 3 h later with the advis
 8. **Commit and push:** `Update to <new cycle> cycle`.
 9. **After landfall / dissipation:** fill "Scored after landfall" with errors against
    the best track, freeze the final version, and stop the update loop.
+
+## Latest NWS page (`latest.html`), every run
+
+Separate from the analysis above, and NWS-only: no model data, no derived numbers.
+
+1. `powershell -ExecutionPolicy Bypass -File tools/build_latest.ps1 -Root <repo path>`. It fetches the
+   current NHC and NWS Mobile products, rebuilds `latest.html`, saves the raw text to `data/raw/nws/`,
+   and prints `CHANGED <field>` lines against `data/latest_state.json`.
+2. If the only change in `latest.html` is the "Page built" stamp, discard it (`git checkout latest.html`).
+3. Otherwise check the page against the raw products line by line (numbers, times, areas), check it
+   at phone and desktop widths, then commit `Update latest NWS page (<products>)` and push.
+4. A `CHANGED` line for the Fairhope zone (wind, surge, rain, tornado), Mobile Bay surge, the Mobile
+   wind probabilities, the Fairhope alerts or the NHC track is the input for deciding whether the
+   Mobile Bay / Fairhope forecast changed materially.
