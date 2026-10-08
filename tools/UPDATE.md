@@ -1,5 +1,7 @@
 # Updating the site for a new NHC cycle
 
+0. **Sync first:** `git pull --rebase`. Another machine may have pushed an update.
+
 Run from the repo root in Git Bash. NHC model cycles are 00/06/12/18Z; the official
 forecast (OFCL) for a cycle appears in the a-deck about 3 h later with the advisory.
 
@@ -28,7 +30,7 @@ forecast (OFCL) for a cycle appears in the a-deck about 3 h later with the advis
    (percentiles), ensemble paragraph, figure captions. Valid times move with the cycle.
    If the story changed, rewrite the section. Keep the tone: factual, no hype,
    uncertainty stated.
-7. **Check it:** serve locally, load at desktop and phone widths, confirm no console
+7. **Check it:** serve locally (`tools/serve.ps1`), load at desktop and phone widths, confirm no console
    errors and that each chart draws.
 8. **Commit and push:** `Update to <new cycle> cycle`.
 9. **After landfall / dissipation:** fill "Scored after landfall" with errors against
