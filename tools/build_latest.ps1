@@ -253,6 +253,7 @@ W @"
     <a class="brand" href="./">AL092026 · ISAIAS</a>
     <nav aria-label="Site">
       <a href="latest.html" aria-current="page">Latest NWS</a>
+      <a href="evacuations.html">Evacuations</a>
       <a href="./">Analysis</a>
       <a href="models.html">Model key</a>
       <a href="methods.html">Methods &amp; data</a>

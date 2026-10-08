@@ -49,3 +49,21 @@ Separate from the analysis above, and NWS-only: no model data, no derived number
 4. A `CHANGED` line for the Fairhope zone (wind, surge, rain, tornado), Mobile Bay surge, the Mobile
    wind probabilities, the Fairhope alerts or the NHC track is the input for deciding whether the
    Mobile Bay / Fairhope forecast changed materially.
+
+## Evacuation page (`evacuations.html`), every run
+
+Official government sources only: the Governor of Alabama, and the Baldwin, Mobile (AL), Escambia, Santa
+Rosa and Okaloosa (FL) county emergency management pages listed in `data/evacuations.json`. No news or
+social media.
+
+1. Re-read every source in `data/evacuations.json` (they are JavaScript-heavy; use a browser, not curl).
+   For each order record who, where, effective time and who issued it exactly as the source states it.
+   Write "Not stated" rather than inferring. Keep quotes short and exact; the signed proclamation can be
+   quoted in full. Flag errors or conflicts in a source as notes instead of fixing them.
+2. Update `read` to the time you finished reading, then run
+   `powershell -ExecutionPolicy Bypass -File tools/build_evac.ps1 -Root <repo path>`. It also adds any
+   evacuation or civil-emergency alerts the NWS relays for those counties, and NWS Mobile's evacuation text.
+3. If nothing changed but the time stamps, discard. Otherwise check the page against the sources, check it
+   at phone width, commit `Update evacuation notices (<what changed>)` and push.
+4. A new, expanded or lifted order for Baldwin or Mobile County, especially one covering Fairhope or Mobile
+   Bay shore residents, is a material change: notify the owner.

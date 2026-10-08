@@ -1,0 +1,175 @@
+{
+  "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
+  "read": "2026-10-08T22:12:00Z",
+  "jurisdictions": [
+    {
+      "id": "baldwin",
+      "name": "Baldwin County, AL",
+      "includes": "Fairhope, Daphne, Foley, Gulf Shores, Orange Beach",
+      "agency": "Baldwin County EMA",
+      "phone": "251-972-6807",
+      "phone_label": "EMA call center",
+      "zones_url": "https://www.baldwincountyal.gov/services/ema/evacuation-information",
+      "orders": [
+        {
+          "type": "mandatory",
+          "who": "Non-residents, tourists and visitors only",
+          "where": "All locations in Baldwin County south of the Gulf Intracoastal Waterway, including Gulf Shores and Orange Beach",
+          "effective": "Thu 8 Oct, 2:30 PM CDT",
+          "by": "Governor of Alabama (see the proclamation below)",
+          "quote": "",
+          "source": "https://governor.alabama.gov/wp-content/uploads/2026/10/2026-10-08-SOE-First-Supplemental-Hurricane-Isaias.pdf",
+          "source_label": "Governor's proclamation, 8 Oct 2026"
+        },
+        {
+          "type": "voluntary",
+          "who": "Residents",
+          "where": "Coastal areas, and flood-prone and low-lying communities",
+          "effective": "Not stated on the county page",
+          "by": "Baldwin County",
+          "quote": "A voluntary evacuation is now in effect for: • Coastal areas • Flood-prone and low-lying communities",
+          "source": "https://www.baldwincountyal.gov/services/ema/baldwin-county-updates",
+          "source_label": "Baldwin County EMA storm updates"
+        }
+      ],
+      "notes": [
+        "The county page's headline reads \"Mandatory Evacuation for all Areas South of Intracoastal Waterway\". The order itself, and the Governor's proclamation, cover non-residents, tourists and visitors only.",
+        "Baldwin County EMA also lists Fort Morgan among the communities covered by the mandatory order.",
+        "Baldwin County's page does not define which \"coastal areas\" the voluntary evacuation covers. Its evacuation information page links the county's evacuation zone maps. Call the EMA to ask about a specific address."
+      ],
+      "shelters": [
+        "Baldwin County Coliseum, 19477 Fairground Rd, Robertsdale. Opened Thu 3 PM; pet-friendly shelter at the same location.",
+        "St. Paul's Episcopal Church, 506 N. Pine St., Foley (a \"Safer Place\" run by volunteer groups). Opens Fri 6 AM; info 251-256-8202.",
+        "Transportation to shelters (BRATS), while conditions are safe: 251-972-6817."
+      ]
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile County, AL",
+      "includes": "Mobile, Dauphin Island, Bayou La Batre",
+      "agency": "Mobile County EMA",
+      "phone": "251-460-8000",
+      "phone_label": "EMA",
+      "zones_url": "https://mobilecountyema.gov",
+      "orders": [
+        {
+          "type": "mandatory",
+          "who": "Non-residents, tourists and visitors only",
+          "where": "All of Zone 1 in Mobile County, including all of Dauphin Island and parts of Bayou La Batre",
+          "effective": "Thu 8 Oct, 2:30 PM CDT",
+          "by": "Governor of Alabama (see the proclamation below)",
+          "quote": "",
+          "source": "https://governor.alabama.gov/wp-content/uploads/2026/10/2026-10-08-SOE-First-Supplemental-Hurricane-Isaias.pdf",
+          "source_label": "Governor's proclamation, 8 Oct 2026"
+        },
+        {
+          "type": "voluntary",
+          "who": "Residents",
+          "where": "Evacuation Zone 1",
+          "effective": "Not stated on the county page",
+          "by": "Mobile County",
+          "quote": "A Voluntary Evacuation is in effect for residents in Evacuation Zone 1.",
+          "source": "https://mobilecountyema.gov",
+          "source_label": "Mobile County EMA home page"
+        }
+      ],
+      "notes": [
+        "Mobile County EMA's home page has a \"Know Your Zone\" tool for checking whether an address is in Zone 1."
+      ],
+      "shelters": [
+        "Public shelters open Fri 9 Oct, 8 AM. Locations are on the EMA's shelter page: https://mobilecountyema.gov/shelters/"
+      ]
+    },
+    {
+      "id": "escambia",
+      "name": "Escambia County, FL",
+      "includes": "Pensacola, Pensacola Beach, Perdido Key",
+      "agency": "Escambia County Emergency Management",
+      "phone": "850-471-6600",
+      "phone_label": "Citizen info line",
+      "zones_url": "https://myescambia.com/knowyourzone",
+      "orders": [
+        {
+          "type": "order",
+          "who": "Not stated (the notice names the zones only)",
+          "where": "Zone A and Zone B",
+          "effective": "Thu 8 Oct, noon",
+          "by": "Escambia County",
+          "quote": "Evacuation orders have been issued for Zone A and Zone B effective Thursday, Oct. 8 at noon.",
+          "source": "https://myescambia.com/news/news-article/2026/10/08/escambia-county-hurricane-isaias-update",
+          "source_label": "Escambia County update, 8 Oct 2026"
+        }
+      ],
+      "notes": [
+        "The notice does not say whether the order is mandatory or voluntary. Ask the county."
+      ],
+      "shelters": [
+        "Shelters opened Thu 8 Oct, 3 PM. Locations: https://myescambia.com/stormcenter"
+      ]
+    },
+    {
+      "id": "santarosa",
+      "name": "Santa Rosa County, FL",
+      "includes": "Milton, Navarre, Gulf Breeze",
+      "agency": "Santa Rosa County Emergency Management",
+      "phone": "850-983-4636",
+      "phone_label": "Citizen info line",
+      "zones_url": "https://www.santarosa.fl.gov/974/Emergency-Management",
+      "orders": [
+        {
+          "type": "order",
+          "who": "Not stated (the notice names the areas only)",
+          "where": "Zones A and B, low-lying areas and mobile homes",
+          "effective": "Thu 8 Oct, 12:30 PM",
+          "by": "Santa Rosa County",
+          "quote": "An evacuation order, effective at 12:30 p.m. on Thursday, October 8, has been issued for Zones A and B, low-lying areas and mobile homes in Santa Rosa County.",
+          "source": "https://www.santarosa.fl.gov/CivicAlerts.aspx?AID=2199",
+          "source_label": "Santa Rosa County Update #3, 8 Oct 2026"
+        }
+      ],
+      "notes": [
+        "The county's notice gives the Milton shelter's opening as \"8 a.m. on Friday, October 8\". Friday is 9 October; check with the county."
+      ],
+      "shelters": [
+        "Clyde L. Gracey (Milton) Community Center, 5629 Byrom St., Milton; pet-friendly. Transportation to a shelter: 850-983-4636 (only while winds are below tropical-storm force)."
+      ]
+    },
+    {
+      "id": "okaloosa",
+      "name": "Okaloosa County, FL",
+      "includes": "Fort Walton Beach, Destin, Crestview, Niceville",
+      "agency": "Okaloosa County Emergency Management",
+      "phone": "850-651-7150",
+      "phone_label": "Public Safety",
+      "zones_url": "https://myokaloosa.com/eoc/home",
+      "orders": [
+        {
+          "type": "mandatory",
+          "who": "Residents",
+          "where": "Zones A and B",
+          "effective": "Thu 8 Oct, noon",
+          "by": "Okaloosa County",
+          "quote": "A mandatory evacuation has been ordered for residents living in Zones A and B beginning at noon on Thursday, October 8, 2026.",
+          "source": "https://myokaloosa.com/eoc/home",
+          "source_label": "Okaloosa County EOC page (update as of 10:30 AM, 8 Oct)"
+        }
+      ],
+      "notes": [
+        "The county page also lists separate evacuation orders for visitors as documents; they were not read for this page.",
+        "The page gives the shelter opening as both \"Thursday, October 8\" and \"Thursday, October 9\" in different places. Thursday is 8 October; check with the county."
+      ],
+      "shelters": [
+        "Davidson Middle School, 6261 Old Bethel Rd, Crestview (general, special needs, pet-friendly) and the Raider Arena, Northwest Florida State College, 100 E College Blvd, Niceville. Listed as opening Thursday 6 PM."
+      ]
+    }
+  ],
+  "proclamation": {
+    "title": "Supplemental proclamation by the Governor of Alabama, 8 October 2026: I. Mandatory evacuation of coastal tourists and visitors",
+    "source": "https://governor.alabama.gov/wp-content/uploads/2026/10/2026-10-08-SOE-First-Supplemental-Hurricane-Isaias.pdf",
+    "release": "https://governor.alabama.gov/newsroom/2026/10/governor-ivey-urges-alabamians-to-prepare-for-hurricane-isaias-provides-update/",
+    "text": [
+      "Effective today, October 8, 2026, at 2:30 p.m. CDT, all non-residents, tourists, and visitors in the covered areas shall immediately evacuate themselves from the covered areas until the state of emergency expires or this order is modified in writing.",
+      "For purposes of this provision, “covered areas” means (1) all locations in Baldwin County south of the Gulf Intracoastal Waterway, including the City of Gulf Shores and the City of Orange Beach, and (2) all of Zone 1 in Mobile County, including all of Dauphin Island and parts of Bayou La Batre."
+    ]
+  }
+}
