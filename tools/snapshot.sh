@@ -17,6 +17,8 @@ for f in $(grep -o 'data/[A-Za-z0-9_.-]*\.js' "$root/index.html" | sort -u); do 
 label="$(date -u -d "${cyc:0:8} ${cyc:8:2}:00" '+%HZ %a %-d %b %Y')"
 banner="<p class=\"note warn\" style=\"margin-top:16px\">Archived snapshot from the ${label} model cycle. Forecasts have changed since. <a href=\"../../\">See the latest analysis</a>.</p>"
 for p in index.html models.html methods.html; do
-  awk -v b="$banner" '{print} /<\/header>/ && !done {print "  " b; done=1}' "$dst/$p" > "$dst/$p.tmp" && mv "$dst/$p.tmp" "$dst/$p"
+  # The live-only "Latest NWS" page is not snapshotted; point its nav link back to the live one.
+  awk -v b="$banner" '{sub(/href="latest\.html"/, "href=\"../../latest.html\"")} {print} /<\/header>/ && !done {print "  " b; done=1}' "$dst/$p" > "$dst/$p.tmp"
+  mv "$dst/$p.tmp" "$dst/$p"
 done
 echo "wrote snapshots/$cyc ($label)"

@@ -1,0 +1,52 @@
+/* latest.html only: phone-first cards on top of style.css. Warnings use a red that reads in both themes;
+   everything else reuses the site's ink/rule/panel tokens. */
+:root { --alert: #b3261e; --alert-bg: rgba(179, 38, 30, 0.07); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --alert: #ff8a80; --alert-bg: rgba(255, 138, 128, 0.10); } }
+:root[data-theme="dark"] { --alert: #ff8a80; --alert-bg: rgba(255, 138, 128, 0.10); }
+
+.disclaimer { margin-top: 14px; border: 1px solid var(--alert); background: var(--alert-bg); border-radius: 4px;
+  padding: 10px 14px; font-family: var(--ui); font-size: .9rem; line-height: 1.45; }
+.headline { font-family: var(--mono); font-size: .86rem; font-weight: 600; letter-spacing: .02em; line-height: 1.45; max-width: 70ch; }
+.next { margin-top: 10px; font-family: var(--ui); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-family: var(--ui); font-size: .85rem; border: 1px solid var(--rule); background: var(--panel); border-radius: 999px; padding: 4px 12px; }
+.chip.warn { border-color: var(--alert); color: var(--alert); background: var(--alert-bg); }
+.chip b { font-weight: 700; }
+
+.hzgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; align-items: start; }
+.hz { background: var(--panel); border: 1px solid var(--rule); border-top: 3px solid var(--ink); border-radius: 4px;
+  padding: 14px 16px; display: grid; gap: 10px; min-width: 0; font-size: 1rem; }
+.hz p { max-width: 68ch; }
+dl.kv { margin: 0; display: grid; gap: 8px; }
+dl.kv dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+dl.kv dd { margin: 0; font-family: var(--ui); font-weight: 600; font-size: 1.02rem; line-height: 1.35; }
+dl.kv .threat dd { color: var(--alert); }
+
+ul.surge { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-family: var(--ui); font-size: .92rem; }
+ul.surge li { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--rule); padding-block: 3px; }
+ul.surge b { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+details { font-family: var(--ui); font-size: .92rem; }
+details summary { cursor: pointer; font-weight: 600; color: var(--link); padding-block: 4px; }
+details ul, details ol { padding-left: 1.2em; display: grid; gap: 6px; margin: 8px 0; }
+details p { margin-block: 8px; }
+pre.nws { white-space: pre-wrap; word-break: break-word; font-family: var(--mono); font-size: .78rem; line-height: 1.5;
+  background: var(--panel); border: 1px solid var(--rule); border-radius: 4px; padding: 10px; margin: 8px 0 0; }
+
+table.data.fc { min-width: 0; width: 100%; }
+table.data.fc td { vertical-align: top; text-align: left; }
+table.data.fc th { text-align: left; }
+#windprob table.data { min-width: 0; width: 100%; }
+
+img.nwsimg { display: block; width: 100%; max-width: 640px; height: auto; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+
+/* Phones: two-up readout, tighter tables so every column fits at 375px. */
+@media (max-width: 600px) {
+  .readout { grid-template-columns: 1fr 1fr; }
+  .readout .v { font-size: 1.3rem; }
+  table.data th, table.data td { padding: 6px 5px; }
+  #windprob table.data th { font-size: .66rem; }
+}
+table.data td .sub, table.data th .sub { display: block; font-family: var(--mono); font-size: .72rem; color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.nowrap { white-space: nowrap; }

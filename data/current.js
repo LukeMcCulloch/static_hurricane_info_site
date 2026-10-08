@@ -1,1 +1,1 @@
-window.CURRENT = { storm: "al092026", cycle: "2026100812", prev: "2026100806" };
+window.CURRENT = { storm: "al092026", cycle: "2026100818", prev: "2026100812" };

@@ -5,7 +5,7 @@
   if (!window.d3 || !window.ATCF || !window.CLIM) return;
 
   // Cycles come from data/current.js (see tools/UPDATE.md).
-  const CUR = window.CURRENT || { cycle: "2026100818", prev: "2026100812" };
+  const CUR = window.CURRENT || { cycle: "2026100812", prev: "2026100806" };
   const CYC = CUR.cycle, PREV = CUR.prev;
   const A = ATCF[CYC], P = ATCF[PREV], CL = CLIM;
 
@@ -31,8 +31,6 @@
     AEMI: ["global", "GEFS ensemble mean, NOAA"],
     UKX2: ["global", "UK Met Office global (12 h old)"],
     CEM2: ["global", "Canadian ensemble mean, CMC (12 h old)"],
-    UKXI: ["global", "UK Met Office global (6 h old)"],
-    CEMI: ["global", "Canadian ensemble mean, CMC (6 h old)"],
     SHIP: ["stat", "SHIPS (no land effect)"],
     DSHP: ["stat", "Decay-SHIPS (with land)"],
     LGEM: ["stat", "Logistic Growth Equation Model"],
@@ -52,8 +50,6 @@
   const t0 = Date.UTC(+CYC.slice(0, 4), +CYC.slice(4, 6) - 1, +CYC.slice(6, 8), +CYC.slice(8, 10));
   const hoursFrom = s => (Date.UTC(+s.slice(0, 4), +s.slice(4, 6) - 1, +s.slice(6, 8), +s.slice(8, 10)) - t0) / 36e5;
   const DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  // Labels and the shift that puts the previous cycle's raw runs on this cycle's clock.
-  const HH = CYC.slice(8, 10) + "Z", PH = PREV.slice(8, 10) + "Z", DP = hoursFrom(PREV);
   function zLabel(h) { const d = new Date(t0 + h * 36e5); return DOW[d.getUTCDay()] + " " + String(d.getUTCHours()).padStart(2, "0") + "Z"; }
   function cdt(h) {
     const d = new Date(t0 + (h - 5) * 36e5), H = d.getUTCHours();
@@ -119,10 +115,8 @@
     set("peak", pk.v + " kt", `${cat(pk.v)} · +${pk.h} h (${cdt(pk.h)})`);
     const at24 = shown.filter(id => !["official", "consensus", "base"].includes(MODELS[id][0])).map(id => at(series(A, id), 24)).filter(v => v != null);
     set("range", d3.min(at24) + "–" + d3.max(at24) + " kt", `${at24.length} model aids at +24 h`);
-    const pv = [24, 48, 72].map(t => pct(CL.spread[t], CL.storm[t].sd)), p = pv.map(ord);
-    // Below the 10th / above the 90th percentile at any lead time counts as low / high.
-    const lo = pv.some(v => v < 10), hi = pv.some(v => v > 90);
-    set("spread", lo && hi ? "Mixed" : lo ? "Typical to low" : hi ? "Typical to high" : "Typical", `${p.join(" / ")} percentile at +24/48/72 h vs. 2023–25 hurricanes`);
+    const p = [24, 48, 72].map(t => ord(pct(CL.spread[t], CL.storm[t].sd)));
+    set("spread", "Typical", `${p.join(" / ")} percentile at +24/48/72 h vs. 2023–25 hurricanes`);
     const e = CL.ofcl["24"];
     set("err", "±" + e.p67 + " kt", `2 of 3 NHC forecasts at +24 h were this close (2023–25); 9 of 10 within ±${e.p90}`);
   }
@@ -251,26 +245,26 @@
     saffir(F.g, y, F.iw); hAxis(F.g, x, F.ih, F.iw, 12); kAxis(F.g, y); nowLine(F.g, x, F.ih);
     const line = d3.line().x(d => x(d.h)).y(d => y(d.v)).curve(d3.curveMonotoneX);
     const S = [
-      { id: "OFCL", pts: series(A, "OFCL"), c: "var(--f-official)", w: 2.6, lab: `NHC official (${HH})` },
-      { id: "GDMN", pts: series(P, "GDMN", DP), c: "var(--f-ai)", w: 2.2, dash: "6 3", lab: `DeepMind raw (${PH} run)` },
-      { id: "GDMI", pts: series(A, "GDMI"), c: "var(--f-ai)", w: 2.6, lab: `DeepMind interpolated (${HH})` },
+      { id: "OFCL", pts: series(A, "OFCL"), c: "var(--f-official)", w: 2.6, lab: "NHC official (12Z)" },
+      { id: "GDMN", pts: series(P, "GDMN", -6), c: "var(--f-ai)", w: 2.2, dash: "6 3", lab: "DeepMind raw (06Z run)" },
+      { id: "GDMI", pts: series(A, "GDMI"), c: "var(--f-ai)", w: 2.6, lab: "DeepMind interpolated (12Z)" },
     ].map(s => ({ ...s, pts: s.pts.filter(p => p.h >= -12 && p.h <= 60) }));
     const bt = best.filter(b => b.h >= -12 && b.h <= 0);
     F.g.append("path").datum(bt).attr("fill", "none").attr("stroke", "var(--ink)").attr("stroke-width", 2.5).attr("d", line);
     S.forEach(s => F.g.append("path").datum(s.pts).attr("fill", "none").attr("stroke", s.c).attr("stroke-width", s.w).attr("stroke-dasharray", s.dash || null).attr("d", line));
-    // Starting miss: raw run at this cycle's start vs observed.
+    // Starting miss: raw run at 12Z vs observed.
     const g0 = S[1].pts.find(p => p.h === 0), o0 = best.find(b => b.h === 0);
     if (g0 && o0) {
       F.g.append("line").attr("x1", x(0) + 4).attr("x2", x(0) + 4).attr("y1", y(g0.v)).attr("y2", y(o0.v)).attr("stroke", "var(--f-ai)").attr("stroke-width", 1.5);
       F.g.append("text").attr("class", "ann").attr("x", x(0) + 10).attr("y", (y(g0.v) + y(o0.v)) / 2).attr("dy", ".35em")
-        .text(`raw run ${g0.v - o0.v > 0 ? "+" : ""}${g0.v - o0.v} kt vs. observed at ${HH}`);
+        .text(`raw run ${g0.v - o0.v > 0 ? "+" : ""}${g0.v - o0.v} kt vs. observed at 12Z`);
     }
     const lg = F.svg.append("g").attr("transform", `translate(${m.l + 8},${m.t + F.ih - 16 - 16 * (S.length - 1)})`);
     S.forEach((s, i) => {
       lg.append("line").attr("x1", 0).attr("x2", 22).attr("y1", i * 16).attr("y2", i * 16).attr("stroke", s.c).attr("stroke-width", s.w).attr("stroke-dasharray", s.dash || null);
       lg.append("text").attr("class", "ann").attr("x", 28).attr("y", i * 16).attr("dy", ".35em").text(s.lab);
     });
-    F.svg.attr("aria-label", `Google DeepMind raw forecast from the ${PH} run versus the interpolated ${HH} aid and the NHC official forecast.`);
+    F.svg.attr("aria-label", "Google DeepMind raw forecast from the 06Z run versus the interpolated 12Z aid and the NHC official forecast.");
   }
 
   // ---- Fig 4: tracks ------------------------------------------------------
@@ -299,8 +293,7 @@
       }
     } catch (e) { F.g.append("text").attr("class", "lbl").attr("x", 14).attr("y", 20).text("Coastline data could not load."); }
     const ll = d3.line().x(d => proj([d.lon, d.lat])[0]).y(d => proj([d.lon, d.lat])[1]).curve(d3.curveCatmullRom);
-    // Statistical and ML aids carry another model's track (CLAUDE.md), so they are not drawn as tracks.
-    const trk = shown.filter(id => !["consensus", "base", "stat"].includes(MODELS[id][0]) && id !== "NNIC")
+    const trk = shown.filter(id => !["consensus", "base"].includes(MODELS[id][0]))
       .map(id => ({ id, fam: MODELS[id][0], pts: series(A, id).filter(p => p.lat != null && p.h <= 72) })).filter(t => t.pts.length > 1);
     trk.sort((a, b) => (a.id === "OFCL") - (b.id === "OFCL"));
     const paths = F.g.selectAll(".trk").data(trk).join("path").attr("class", "series").attr("fill", "none")
@@ -315,7 +308,7 @@
     const bt = best.filter(b => b.h >= -96 && b.h <= 0 && b.lat != null);
     F.g.append("path").datum(bt).attr("d", ll).attr("fill", "none").attr("stroke", "var(--ink)").attr("stroke-width", 2.4);
     F.g.selectAll(".bt").data(bt).join("circle").attr("cx", d => proj([d.lon, d.lat])[0]).attr("cy", d => proj([d.lon, d.lat])[1]).attr("r", 2.4).attr("fill", "var(--ink)");
-    const b0 = bt[bt.length - 1]; if (b0) { const [px, py] = proj([b0.lon, b0.lat]); F.g.append("text").attr("class", "ann").attr("x", px - 8).attr("y", py + 16).attr("text-anchor", "end").text(`${zLabel(b0.h)}, ${b0.v} kt`); }
+    const b0 = bt[bt.length - 1]; if (b0) { const [px, py] = proj([b0.lon, b0.lat]); F.g.append("text").attr("class", "ann").attr("x", px - 8).attr("y", py + 16).attr("text-anchor", "end").text("12Z Thu, 70 kt"); }
     [["New Orleans", 29.95, -90.07], ["Mobile", 30.69, -88.04], ["Pensacola", 30.42, -87.22], ["Panama City", 30.16, -85.66], ["Tampa", 27.95, -82.46], ["Houston", 29.76, -95.37]].forEach(([n, la, lo]) => {
       const [px, py] = proj([lo, la]);
       F.g.append("circle").attr("cx", px).attr("cy", py).attr("r", 2).attr("fill", "var(--muted)");
@@ -348,8 +341,7 @@
       F.svg.attr("aria-label", `Histogram of model spread at +${tau} hours for 2023 to 2025 hurricanes; Isaias is at the ${ord(pct(arr, me))} percentile.`);
     });
     // Spread when the outlying groups are added back (not comparable to the climatology; shown for scale).
-    const core = ["HFAI", "HFBI", "HWFI", "HMNI", "CTCI", "AVNI", "DSHP", "LGEM"];
-    const wide = core.concat(["GDMI", A.models.UKXI ? "UKXI" : "UKX2", A.models.CEMI ? "CEMI" : "CEM2", "SHIP"]);
+    const core = ["HFAI", "HFBI", "HWFI", "HMNI", "CTCI", "AVNI", "DSHP", "LGEM"], wide = core.concat(["GDMI", "UKX2", "CEM2", "SHIP"]);
     const v = ids => ids.map(id => at(series(A, id), 48)).filter(x => x != null);
     const e = document.getElementById("wide48");
     if (e) e.textContent = `${fmt(sd(v(core)))} kt to ${fmt(sd(v(wide)))} kt`;
@@ -359,7 +351,7 @@
   function figGefs() {
     const el = document.getElementById("fig-gefs"); if (!el) return;
     const ids = Object.keys(P.models).filter(k => /^A(P\d\d|C00)$/.test(k));
-    const mem = ids.map(id => series(P, id, DP).filter(p => p.h <= 120));
+    const mem = ids.map(id => series(P, id, -6).filter(p => p.h <= 120));
     const m = { t: 22, r: 48, b: 46, l: 38 };
     const F = frame(el, .5, 300, 440, m);
     const x = d3.scaleLinear([-12, 120], [0, F.iw]), y = d3.scaleLinear([0, 115], [F.ih, 0]);
@@ -376,11 +368,11 @@
     F.g.append("path").datum(bt).attr("fill", "none").attr("stroke", "var(--ink)").attr("stroke-width", 2.5).attr("d", line);
     F.g.append("path").datum(series(A, "OFCL")).attr("fill", "none").attr("stroke", "var(--f-official)").attr("stroke-width", 2.4).attr("stroke-dasharray", "1 4").attr("stroke-linecap", "round").attr("d", line);
     const lg = F.svg.append("g").attr("transform", `translate(${F.w - m.r - 210},${m.t + 14})`);
-    [["var(--f-global)", 2.8, null, `GEFS median, ${mem.length} members (${PH})`], ["var(--f-global)", 10, null, "10th–90th percentile"], ["var(--f-official)", 2.4, "1 4", `NHC official (${HH})`]].forEach(([c, w, d, t], i) => {
+    [["var(--f-global)", 2.8, null, `GEFS median, ${mem.length} members (06Z)`], ["var(--f-global)", 10, null, "10th–90th percentile"], ["var(--f-official)", 2.4, "1 4", "NHC official (12Z)"]].forEach(([c, w, d, t], i) => {
       lg.append("line").attr("x1", 0).attr("x2", 22).attr("y1", i * 16).attr("y2", i * 16).attr("stroke", c).attr("stroke-width", w).attr("stroke-opacity", w === 10 ? .2 : 1).attr("stroke-dasharray", d).attr("stroke-linecap", d ? "round" : null);
       lg.append("text").attr("class", "ann").attr("x", 28).attr("y", i * 16).attr("dy", ".35em").text(t);
     });
-    F.svg.attr("aria-label", `GEFS ensemble intensity plume for Isaias from the ${PH} run.`);
+    F.svg.attr("aria-label", "GEFS ensemble intensity plume for Isaias from the 06Z run.");
   }
 
   // ---- boot ----------------------------------------------------------------
