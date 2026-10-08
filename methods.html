@@ -36,7 +36,7 @@
         <li><b>Past seasons.</b> <a href="https://ftp.nhc.noaa.gov/atcf/archive/">ftp.nhc.noaa.gov/atcf/archive/</a>: all Atlantic a-decks and final best tracks for 2023, 2024 and 2025.</li>
         <li><b>Map.</b> Natural Earth coastlines and U.S. Census state boundaries, via the <code>world-atlas</code> and <code>us-atlas</code> packages.</li>
       </ul>
-      <p>The file formats are documented in the <a href="https://www.nrlmry.navy.mil/atcf_web/docs/database/new/abdeck.txt">ATCF a/b-deck specification</a>. Wind speeds are 1-minute sustained winds in knots. Rows repeat once per wind-radii threshold, so we keep the first row for each aid and forecast hour. A value of 0 kt means either no value or a dissipated system, and we drop it.</p>
+      <p>The files use the comma-separated ATCF "a-deck" (forecasts) and "b-deck" (best track) format. Field positions were read from the files themselves: cycle, model ID, forecast hour, latitude, longitude, maximum wind, pressure, storm type. Wind speeds are 1-minute sustained winds in knots. Rows repeat once per wind-radii threshold, so we keep the first row for each aid and forecast hour. A value of 0 kt means either no value or a dissipated system, and we drop it.</p>
     </div>
   </section>
 
@@ -110,9 +110,11 @@ awk -F', *' -v bfile=data/raw/bal092026.dat -f tools/early_verify.awk data/raw/a
         <li>Frontiers in Earth Science (2024). <a href="https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2024.1399409">Paper on HAFS, NOAA's Hurricane Analysis and Forecast System</a>, which replaced HWRF and HMON in 2023.</li>
         <li>NOAA AOML. <a href="https://www.aoml.noaa.gov/hurricane-weather-research-forecast-model/">Hurricane Weather Research and Forecast model (HWRF)</a>.</li>
         <li>Google DeepMind. <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext cyclone model</a> (developer's account).</li>
-        <li>M. Lowry. <a href="https://michaelrlowry.substack.com/p/this-hurricane-season-two-forecast">This hurricane season, two forecast models stand out</a>. Summarizes J. Franklin's 2025 season verification.</li>
+        <li>M. Lowry. <a href="https://michaelrlowry.substack.com/p/this-hurricane-season-two-forecast">This hurricane season, two forecast models stand out</a>. Summarizes preliminary 2025 verification by J. Franklin, retired NHC chief forecaster.</li>
         <li>Brightband. <a href="https://www.brightband.com/blog/how-did-google-deepmind-perform-during-the-2025-atlantic-hurricane-season-ai-models-discussion">How did Google DeepMind perform during the 2025 Atlantic hurricane season?</a></li>
-        <li>NRL. <a href="https://www.nrlmry.navy.mil/atcf_web/docs/database/new/abdeck.txt">ATCF a-deck and b-deck format</a>.</li>
+        <li>NCAR/RAL. <a href="https://hurricanes.ral.ucar.edu/guide/intensity/">Guide to early-cycle intensity plots</a>. Interpolated aids ("I" = 6 h old, "2" = 12 h old).</li>
+        <li>NHC. <a href="https://www.nhc.noaa.gov/ms-word/model_summary_20090724.doc">Model summary</a> (2009). Interpolation of late models and the "2" suffix.</li>
+        <li>Simon et al. <a href="https://impacts.ucar.edu/en/publications/a-description-of-the-real-time-hfip-corrected-consensus-approach-/">A description of the real-time HFIP Corrected Consensus Approach (HCCA)</a>. <i>Weather and Forecasting</i>.</li>
       </ol>
     </div>
   </section>

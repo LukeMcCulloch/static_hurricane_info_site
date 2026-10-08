@@ -51,13 +51,13 @@
         <p>Averages of several models usually beat any single model.</p>
         <dl>
           <div><dt>IVCN</dt><dd>Intensity consensus: an average of several aids.</dd></div>
-          <div><dt>HCCA</dt><dd>HFIP Corrected Consensus Approach. A weighted average with each member's historical biases removed. It is among the most skillful intensity aids in NHC's annual verifications.</dd></div>
+          <div><dt>HCCA</dt><dd>HFIP Corrected Consensus Approach. A weighted average with each member's historical biases removed. In published evaluations it has been competitive with the best operational guidance.</dd></div>
         </dl>
       </div>
 
       <div class="keycard" style="--c:var(--f-regional)">
         <h3>Regional physics</h3>
-        <p>Hurricane-specific models with nested grids that follow the storm, coupled to an ocean model. They resolve the eyewall, so they are the physics models built to forecast peak intensity.</p>
+        <p>Hurricane-specific models with nested grids that follow the storm (about 2 km for HAFS), coupled to an ocean model. They resolve the eyewall, so they are the physics models built to forecast peak intensity.</p>
         <dl>
           <div><dt>HFAI / HFA2 · HFBI</dt><dd>HAFS-A and HAFS-B, NOAA's Hurricane Analysis and Forecast System. Two configurations with different physics. Operational since 2023.</dd></div>
           <div><dt>HWFI / HWF2 · HMNI</dt><dd>HWRF and HMON, NOAA's previous-generation hurricane models, which HAFS replaced as the primary system. Their output still appears in NHC's 2026 model file.</dd></div>
@@ -67,7 +67,7 @@
 
       <div class="keycard" style="--c:var(--f-global)">
         <h3>Global physics</h3>
-        <p>Whole-planet weather models. Strong on steering and track. With grids of roughly 9–25 km they can't resolve a tight inner core, so they usually forecast peak winds too low.</p>
+        <p>Whole-planet weather models. Strong on steering and track. With grid spacings of about 10 km or more (GFS about 13 km, ECMWF about 9 km) they can't resolve a tight inner core, so they usually forecast peak winds too low.</p>
         <dl>
           <div><dt>AVNI</dt><dd>GFS, NOAA's global model. AVN is its historical name.</dd></div>
           <div><dt>AEMI</dt><dd>GEFS ensemble mean: the average of NOAA's 31-member global ensemble.</dd></div>
@@ -92,7 +92,7 @@
         <h3>AI &amp; machine learning</h3>
         <p>Learned from historical data and very fast to run. They are new to operations, and their track record covers only a few seasons.</p>
         <dl>
-          <div><dt>GDMI / GDM2 · GDMN</dt><dd>Google DeepMind's cyclone model (WeatherNext). NHC used it experimentally in 2025. Preliminary reviews, including one by former NHC branch chief James Franklin, ranked it at or near the top of the guidance for track and intensity that season.</dd></div>
+          <div><dt>GDMI / GDM2 · GDMN</dt><dd>Google DeepMind's cyclone model (WeatherNext). NHC used it experimentally in 2025. Preliminary reviews, including one by retired NHC chief forecaster James Franklin, ranked it at or near the top of the guidance for track and intensity that season.</dd></div>
           <div><dt>NNIC · NNIB</dt><dd>Neural-network intensity consensus. A small neural network that combines other aids (in 2021: HWFI, AVNI, DSHP and LGEM) with environmental predictors. NNIB is the equal-weight average of the same inputs, used as its baseline. Experimental.</dd></div>
         </dl>
       </div>
