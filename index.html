@@ -50,6 +50,40 @@
     </figure>
   </section>
 
+  <section id="so-far">
+    <div class="prose">
+      <h2>What has already verified</h2>
+      <p>Isaias sat nearly stationary in the Bay of Campeche for about two days, first as a weak disturbance and then as a depression. It then turned east-northeast and intensified rapidly, from 35 kt at 06Z Wednesday to 70 kt at 06Z Thursday. That is 35 kt in 24 hours. Early on, the models disagreed about both the turn and the intensification. Some moved the system east quickly and strengthened it. Others kept it slow, weak and farther south. Those forecasts can now be checked against NHC's best track.</p>
+      <h3>Track and timing: Google DeepMind and HAFS</h3>
+      <p>The 12Z Tuesday runs, made 48 h before Thursday's 12Z position, show the split clearly. <span class="fam" style="color:var(--f-ai)">DeepMind</span>'s raw run placed the center 6 nmi from where it was. <span class="fam" style="color:var(--f-regional)">HAFS-A</span> and HAFS-B were within 11 and 24 nmi. Over every forecast so far that all the aids below share, the interpolated DeepMind aid has the smallest average track error, 16 nmi. NHC's official forecast is close behind at 18 nmi.</p>
+      <h3>Intensification: DeepMind, COAMPS-TC and the consensus</h3>
+      <p>The same DeepMind run forecast 69 kt for 12Z Thursday, two days ahead. The observed intensity was 70 kt. HAFS-A forecast 65 kt. Across the shared forecasts, the smallest intensity errors belong to the corrected consensus (HCCA), the neural-network consensus (NNIC), DeepMind, NHC and the Navy's <span class="fam" style="color:var(--f-regional)">COAMPS-TC</span>, all between 4 and 6 kt.</p>
+      <h3>What missed</h3>
+      <p>Nearly every aid was too slow to intensify Isaias. The <span class="fam" style="color:var(--f-global)">global models</span> ran the lowest, as expected at their resolution, and the <span class="fam" style="color:var(--f-stat)">statistical</span> LGEM was 12 kt low. Two days out, the GFS, its ensemble mean and the track consensus kept the center too far south or too slow, by 130–190 nmi. COAMPS-TC, the best interpolated physics model on intensity, had the largest track error of the regional models.</p>
+    </div>
+    <div class="scroll">
+      <table class="data">
+        <thead><tr><th>Aid</th><th>Type</th><th>Intensity error</th><th>Intensity bias</th><th>Track error</th></tr></thead>
+        <tbody>
+          <tr><td>HCCA</td><td>Consensus</td><td>4.1 kt</td><td>−2.8</td><td>27 nmi</td></tr>
+          <tr><td>NNIC</td><td>Machine learning</td><td>4.4 kt</td><td>−3.4</td><td>—</td></tr>
+          <tr><td>GDMI</td><td>AI (DeepMind)</td><td>5.0 kt</td><td>−3.8</td><td>16 nmi</td></tr>
+          <tr><td>OFCL</td><td>NHC official</td><td>5.4 kt</td><td>−4.6</td><td>18 nmi</td></tr>
+          <tr><td>CTCI</td><td>Regional physics</td><td>5.7 kt</td><td>+4.2</td><td>79 nmi</td></tr>
+          <tr><td>HWFI</td><td>Regional physics</td><td>7.2 kt</td><td>−7.2</td><td>36 nmi</td></tr>
+          <tr><td>HMNI</td><td>Regional physics</td><td>7.8 kt</td><td>−7.6</td><td>53 nmi</td></tr>
+          <tr><td>SHIP / DSHP</td><td>Statistical</td><td>7.8 kt</td><td>−6.6</td><td>—</td></tr>
+          <tr><td>HFAI</td><td>Regional physics</td><td>8.2 kt</td><td>−7.6</td><td>44 nmi</td></tr>
+          <tr><td>HFBI</td><td>Regional physics</td><td>9.8 kt</td><td>−7.6</td><td>43 nmi</td></tr>
+          <tr><td>AVNI</td><td>Global physics</td><td>11.2 kt</td><td>−11.2</td><td>40 nmi</td></tr>
+          <tr><td>LGEM</td><td>Statistical</td><td>13.2 kt</td><td>−12.2</td><td>—</td></tr>
+          <tr><td>AEMI</td><td>Global physics</td><td>19.0 kt</td><td>−19.0</td><td>56 nmi</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small col">Mean absolute errors at +12 to +48 h, over the 12 forecast cycle and lead time pairs that every listed aid shares (a homogeneous sample), scored against NHC's operational best track through 12Z Thursday. Statistical and ML aids borrow another model's track, so their track errors are not listed. This covers two to three days of one storm against a preliminary best track. It shows which models handled this storm's genesis and rapid intensification, not which models are better overall.</p>
+  </section>
+
   <section id="split">
     <div class="prose">
       <h2>Where they split</h2>

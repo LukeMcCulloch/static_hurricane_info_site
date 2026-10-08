@@ -83,6 +83,13 @@
 
   <section>
     <div class="prose">
+      <h2>Early verification for Isaias</h2>
+      <p>The "What has already verified" table scores every forecast from earlier cycles whose valid time has passed, using the operational best track through 12Z 8 Oct (<code>tools/early_verify.awk</code>, output in <code>data/early_verify.csv</code>). Averages cover a homogeneous sample: lead times of +12 to +48 h, restricted to the cycle and lead time pairs where all 14 compared aids have a forecast (12 pairs). Track error is great-circle distance in nautical miles. The 48-hour track positions quoted from the 12Z Tuesday cycle use raw (non-interpolated) output: <code>GDMN</code>, <code>HFSA</code>, <code>HFSB</code>, <code>AVNO</code>, <code>AEMN</code>, <code>TVCN</code>. The sample is small and the best track is preliminary.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="prose">
       <h2>Reproduce it</h2>
       <p>Requires <code>bash</code>, <code>curl</code> and GNU <code>awk</code>, for example Git Bash on Windows.</p>
     </div>
@@ -90,7 +97,8 @@
 tools/build_data.sh al092026 ISAIAS 2026100806
 tools/spread_climatology.sh 2023 2024 2025
 tools/official_errors.sh 2023 2024 2025
-tools/summarize.sh al092026 2026100812</pre></div>
+tools/summarize.sh al092026 2026100812
+awk -F', *' -v bfile=data/raw/bal092026.dat -f tools/early_verify.awk data/raw/aal092026.dat > data/early_verify.csv</pre></div>
   </section>
 
   <section id="refs">
