@@ -229,7 +229,12 @@
       F.g.append("text").attr("class", "lbl").attr("x", F.iw).attr("y", F.ih + 30).attr("text-anchor", "end").text("kt");
       F.svg.append("text").attr("class", "ann").attr("x", 12).attr("y", 18).attr("font-weight", 700).text(`+${tau} h`);
       F.svg.append("text").attr("class", "lbl").attr("x", 12).attr("y", 32).text(`${zLabel(tau)} · ${cdt(tau)}`);
-      rows.forEach(r => F.g.append("text").attr("class", "lbl").attr("x", -10).attr("y", yb(r.id) + yb.bandwidth() / 2).attr("dy", ".35em").attr("text-anchor", "end").attr("fill", famColor(r.id)).text(r.label));
+      // Row labels: fall back to a short name when the full one would run past the left edge (phones).
+      const SHORT = { official: "NHC", regional: "Regional", global: "Global", ai: "AI / ML" };
+      rows.forEach(r => {
+        const t = F.g.append("text").attr("class", "lbl").attr("x", -10).attr("y", yb(r.id) + yb.bandwidth() / 2).attr("dy", ".35em").attr("text-anchor", "end").attr("fill", famColor(r.id)).text(r.label);
+        if (SHORT[r.id] && t.node().getComputedTextLength() > m.l - 14) t.text(SHORT[r.id]);
+      });
       const pts = shown.map(id => ({ id, fam: MODELS[id][0], v: at(series(A, id), tau) })).filter(d => d.v != null && d.fam !== "base");
       const seen = {};
       pts.forEach(d => { const k = d.fam + Math.round(d.v / 2); d.k = seen[k] = (seen[k] || 0) + 1; });
