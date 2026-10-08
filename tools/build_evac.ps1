@@ -36,7 +36,7 @@ $built = [DateTimeOffset]::UtcNow
 
 $sb = New-Object Text.StringBuilder
 function W([string]$s) { [void]$sb.AppendLine($s) }
-$typeLabel = @{ mandatory = 'Mandatory evacuation'; voluntary = 'Voluntary evacuation'; order = 'Evacuation order' }
+$typeLabel = @{ mandatory = 'Mandatory evacuation'; voluntary = 'Voluntary evacuation'; order = 'Evacuation order'; request = 'Evacuation request' }
 
 W @"
 <!doctype html>
@@ -81,7 +81,7 @@ W @"
 W '  <section id="summary"><div class="prose"><h2>At a glance</h2></div>'
 W '  <div class="scroll"><table class="data fc"><thead><tr><th>County</th><th>Orders in effect</th></tr></thead><tbody>'
 foreach ($j in $ev.jurisdictions) {
-  $cells = ($j.orders | ForEach-Object { "<span class=""chip$(if ($_.type -ne 'voluntary') { ' warn' })""><b>$(Esc $typeLabel[$_.type])</b></span> <span class=""small"">$(Esc $_.who): $(Esc $_.where)</span>" }) -join '<br>'
+  $cells = ($j.orders | ForEach-Object { "<span class=""chip$(if (@('mandatory', 'order') -contains $_.type) { ' warn' })""><b>$(Esc $typeLabel[$_.type])</b></span> <span class=""small"">$(Esc $_.who): $(Esc $_.where)</span>" }) -join '<br>'
   W "    <tr><td><a href=""#$($j.id)""><b>$(Esc $j.name)</b></a></td><td>$cells</td></tr>"
 }
 W '  </tbody></table></div></section>'
@@ -90,8 +90,8 @@ foreach ($j in $ev.jurisdictions) {
   W "  <section id=""$($j.id)""><div class=""prose""><h2>$(Esc $j.name)</h2><p class=""small"">Includes $(Esc $j.includes). Source agency: $(Esc $j.agency).</p></div>"
   W '  <div class="hzgrid">'
   foreach ($o in $j.orders) {
-    W "<article class=""hz""><h3><span class=""chip$(if ($o.type -ne 'voluntary') { ' warn' })""><b>$(Esc $typeLabel[$o.type])</b></span></h3><dl class=""kv"">"
-    W "<div><dt>Who</dt><dd>$(Esc $o.who)</dd></div><div><dt>Where</dt><dd>$(Esc $o.where)</dd></div><div><dt>Effective</dt><dd>$(Esc $o.effective)</dd></div><div><dt>Ordered by</dt><dd>$(Esc $o.by)</dd></div></dl>"
+    W "<article class=""hz""><h3><span class=""chip$(if (@('mandatory', 'order') -contains $o.type) { ' warn' })""><b>$(Esc $typeLabel[$o.type])</b></span></h3><dl class=""kv"">"
+    W "<div><dt>Who</dt><dd>$(Esc $o.who)</dd></div><div><dt>Where</dt><dd>$(Esc $o.where)</dd></div><div><dt>Effective</dt><dd>$(Esc $o.effective)</dd></div><div><dt>Issued by</dt><dd>$(Esc $o.by)</dd></div></dl>"
     if ($o.quote) { W "<blockquote class=""q"">&ldquo;$(Esc $o.quote)&rdquo;</blockquote>" }
     W "<p class=""small"">Source: <a href=""$(Esc $o.source)"">$(Esc $o.source_label)</a></p></article>"
   }

@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-08T22:12:00Z",
+  "read": "2026-10-08T22:46:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -146,16 +146,27 @@
         {
           "type": "mandatory",
           "who": "Residents",
-          "where": "Zones A and B",
+          "where": "Coastal areas of Zones A and B, including Okaloosa Island and portions of coastal Fort Walton Beach, Destin, Mary Esther and Niceville",
           "effective": "Thu 8 Oct, noon",
           "by": "Okaloosa County",
-          "quote": "A mandatory evacuation has been ordered for residents living in Zones A and B beginning at noon on Thursday, October 8, 2026.",
+          "quote": "A mandatory evacuation (Active 12 p.m. Thursday, Oct 8, 2026) has been ordered for residents living in the coastal areas of Zones A and B.",
           "source": "https://myokaloosa.com/eoc/home",
-          "source_label": "Okaloosa County EOC page (update as of 10:30 AM, 8 Oct)"
+          "source_label": "Okaloosa County EOC page"
+        },
+        {
+          "type": "request",
+          "who": "All out-of-town visitors",
+          "where": "The forecast area of impacts",
+          "effective": "Wed 7 Oct, 8 PM",
+          "by": "Okaloosa County",
+          "quote": "Okaloosa County is asking all out-of-town visitors to evacuate from the forecast area of impacts",
+          "source": "https://myokaloosa.com/eoc/home",
+          "source_label": "Okaloosa County EOC page"
         }
       ],
       "notes": [
-        "The county page also lists separate evacuation orders for visitors as documents; they were not read for this page.",
+        "The page also links the county's evacuation orders for residents and for visitors as separate documents; those documents were not opened for this page.",
+        "An update on the same page, as of 10:30 AM 8 Oct, words the resident order as covering \"residents living in Zones A and B\" without \"coastal areas\".",
         "The page gives the shelter opening as both \"Thursday, October 8\" and \"Thursday, October 9\" in different places. Thursday is 8 October; check with the county."
       ],
       "shelters": [
