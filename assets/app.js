@@ -30,7 +30,7 @@
     AVNI: ["global", "GFS, NOAA"],
     AEMI: ["global", "GEFS ensemble mean, NOAA"],
     UKX2: ["global", "UK Met Office global (12 h old)"],
-    CEM2: ["global", "Canadian global, CMC (12 h old)"],
+    CEM2: ["global", "Canadian ensemble mean, CMC (12 h old)"],
     SHIP: ["stat", "SHIPS (no land effect)"],
     DSHP: ["stat", "Decay-SHIPS (with land)"],
     LGEM: ["stat", "Logistic Growth Equation Model"],

@@ -26,7 +26,7 @@
   </header>
 
   <div class="hero">
-    <p class="stamp">NHC model cycle 12Z Thu 8 Oct 2026 · north-central Gulf of Mexico</p>
+    <p class="stamp">NHC model cycle 12Z Thu 8 Oct 2026 · central Gulf of Mexico</p>
     <h1>Isaias, model by model</h1>
     <p class="dek">Physics-based, statistical and AI models are all forecasting the same Gulf hurricane. This page shows where they agree, where they split, and whether the split is unusual. It uses NOAA's public model file and three seasons of verification.</p>
   </div>
@@ -41,7 +41,7 @@
   <section id="guidance">
     <div class="prose">
       <h2>The guidance</h2>
-      <p>Every model agrees on the shape. Isaias strengthens for about a day, then weakens fast between +36 and +48 h as NHC's track takes the center inland over the north-central Gulf coast. The models disagree on two numbers: how strong the storm is at the coast, and how fast it falls apart over land.</p>
+      <p>Nearly every model agrees on the shape. Isaias strengthens for about a day, then weakens fast between +36 and +48 h as NHC's track takes the center inland over the north-central Gulf coast. The models disagree on two numbers: how strong the storm is at the coast, and how fast it falls apart over land.</p>
     </div>
     <div class="toggles" id="toggles" aria-label="Show or hide model families"></div>
     <figure>
@@ -96,8 +96,8 @@
       <h3>At the peak, the storm-scale physics models run highest</h3>
       <p>At +24 h the <span class="fam" style="color:var(--f-regional)">regional physics</span> models span 87–101 kt, with the Navy's COAMPS-TC highest. The <span class="fam" style="color:var(--f-global)">global physics</span>, <span class="fam" style="color:var(--f-stat)">statistical</span> and interpolated <span class="fam" style="color:var(--f-ai)">DeepMind</span> aids sit between 75 and 84 kt. Regional hurricane models follow the storm with nested grids (about 2 km for HAFS) that can resolve the eyewall. Global models, with grid spacings of about 10 km or more, cannot, and they usually run weak at the peak. NHC's 95 kt is near the top of the range.</p>
       <h3>Over land, the AI aid weakens fastest and the coarse global models slowest</h3>
-      <p>At +48 h the DeepMind aid (GDMI) is at 23 kt, the regional physics models are at 29–43 kt and the GFS is at 39 kt. The UK and Canadian global models are still at 62 and 66 kt. SHIPS, a statistical model with no land in it by design, holds 67 kt. Its land-aware version, Decay-SHIPS, drops to 48 kt. The 19 kt between those two is the land effect as that statistical scheme models it, which makes the pair a useful control.</p>
-      <p class="note">Some of the intensity spread is really track spread. A model that brings the center ashore earlier, or farther west, also weakens it earlier. At +36 h HAFS-A puts the center at 29.3°N 88.0°W and the DeepMind aid at 29.7°N 87.2°W, about 85 km apart (Fig. 4).</p>
+      <p>At +48 h the DeepMind aid (GDMI) is at 23 kt, the regional physics models are at 29–43 kt and the GFS is at 39 kt. The UK global model and the Canadian ensemble mean are still at 62 and 66 kt, and the deterministic Canadian run (CMC2, not plotted) is also at 62 kt. SHIPS, a statistical model with no land in it by design, holds 67 kt. Its land-aware version, Decay-SHIPS, drops to 48 kt. The 19 kt between those two is the land effect as that statistical scheme models it, which makes the pair a useful control.</p>
+      <p class="note">Some of the intensity spread is really track spread. A model that brings the center ashore earlier, or farther west, also weakens it earlier. At +36 h HAFS-A puts the center at 29.3°N 88.0°W and the DeepMind aid at 29.7°N 87.2°W, about 90 km apart (Fig. 4).</p>
     </div>
   </section>
 
@@ -130,7 +130,7 @@
       <h2>Is this disagreement unusual?</h2>
       <p class="answer">Not among the core models. The split comes from the models outside that core.</p>
       <p>We took eight aids that ran in every season from 2023 to 2025: HAFS-A, HAFS-B, HWRF, HMON, COAMPS-TC, GFS, Decay-SHIPS and LGEM. For every Atlantic forecast cycle that started at hurricane strength, we computed their spread, the standard deviation across models. By that measure, Isaias's disagreement is ordinary at +24, +48 and +72 h.</p>
-      <p>Isaias stands out once the other models come back in. Adding the DeepMind aid, the UK and Canadian global models and SHIPS raises the +48 h spread from <span id="wide48" class="mono">6.8 kt to 14.3 kt</span>. That figure uses a different set of models, so it can't be compared to the histograms. It does show where the disagreement comes from: models that treat land very differently.</p>
+      <p>Isaias stands out once the other models come back in. Adding the DeepMind aid, the UK global model, the Canadian ensemble mean and SHIPS raises the +48 h spread from <span id="wide48" class="mono">6.8 kt to 14.3 kt</span>. That figure uses a different set of models, so it can't be compared to the histograms. It does show where the disagreement comes from: models that treat land very differently.</p>
     </div>
     <figure>
       <div class="grid3" id="fig-spread"></div>
@@ -141,7 +141,7 @@
   <section id="ensemble">
     <div class="prose">
       <h2>The ensemble view</h2>
-      <p>NOAA's global ensemble (GEFS) runs the GFS 31 times from slightly different starting conditions. At this resolution its intensities are much too weak. At 06Z the members started between 38 and 72 kt against an observed 70 kt, so read the plume for timing, not strength. 25 of the 31 members lose 15 kt or more between +36 and +48 h on the 12Z clock. That is independent evidence that the timing of the move inland is fairly well constrained.</p>
+      <p>NOAA's global ensemble (GEFS) runs 31 versions of the GFS, each with slightly perturbed starting conditions and model physics. At this resolution its intensities are much too weak. At 06Z the members started between 38 and 72 kt against an observed 70 kt, so read the plume for timing, not strength. 25 of the 31 members lose 15 kt or more between +36 and +48 h on the 12Z clock. That is independent evidence that the timing of the move inland is fairly well constrained.</p>
       <p class="small">The European (ECMWF) model and ensemble are not in NOAA's public model file, so they are not shown. Google's model is itself an ensemble, but the public file carries one forecast per cycle.</p>
     </div>
     <figure>
