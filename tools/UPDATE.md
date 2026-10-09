@@ -24,7 +24,9 @@ forecast (OFCL) for a cycle appears in the a-deck about 3 h later with the advis
    (snapshots keep their own copies).
 6. **Re-derive every number in the text** of `index.html` from the new data. Nothing
    carries over unchecked. Includes: hero stamp, readout fallbacks, "The guidance",
-   "What has already verified" (re-run the homogeneous table and the 48 h track check
+   "What has already verified" (regenerate the table rows with `tools/verify_table.sh data/early_verify.csv`
+   and paste them in place of the old rows; update the pair count and best-track time in the note;
+   re-run the 48 h track check
    against the newest best-track point), "Where they split" (+24/+36/+48 h values),
    the DeepMind raw-vs-interpolated paragraph, tracks, "Is this disagreement unusual?"
    (percentiles), ensemble paragraph, figure captions. Valid times move with the cycle.

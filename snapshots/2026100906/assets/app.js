@@ -41,7 +41,6 @@
     OCD5: ["base", "Climatology & persistence"],
   };
   const DASH = { NNIC: "5 3", OCD5: "2 3", IVCN: "6 3", GDMN: "6 3" };
-  const SPREAD_T = [24, 48, 72];
   const SS = [[34, 64, "TS"], [64, 83, "Cat 1"], [83, 96, "Cat 2"], [96, 113, "Cat 3"], [113, 137, "Cat 4"]];
 
   const visible = new Set(FAMS.map(f => f.id));
@@ -117,15 +116,13 @@
   function readout() {
     const ofcl = series(A, "OFCL"), pk = ofcl.reduce((a, b) => (b.v > a.v ? b : a));
     const set = (k, v, n) => { const e = document.querySelector(`[data-ro="${k}"]`); if (e) { e.querySelector(".v").textContent = v; e.querySelector(".n").textContent = n; } };
-    set("peak", pk.v + " kt", pk.h === 0 ? `${cat(pk.v)} · now (${cdt(0)}); forecast to weaken` : `${cat(pk.v)} · +${pk.h} h (${cdt(pk.h)})`);
+    set("peak", pk.v + " kt", `${cat(pk.v)} · +${pk.h} h (${cdt(pk.h)})`);
     const at24 = shown.filter(id => !["official", "consensus", "base"].includes(MODELS[id][0])).map(id => at(series(A, id), 24)).filter(v => v != null);
     set("range", d3.min(at24) + "–" + d3.max(at24) + " kt", `${at24.length} model aids at +24 h`);
-    // Lead times where at least six core aids have a forecast (summarize.sh leaves the others out).
-    const T = SPREAD_T.filter(t => CL.storm[t]);
-    const pv = T.map(t => pct(CL.spread[t], CL.storm[t].sd)), p = pv.map(ord);
+    const pv = [24, 48, 72].map(t => pct(CL.spread[t], CL.storm[t].sd)), p = pv.map(ord);
     // Below the 10th / above the 90th percentile at any lead time counts as low / high.
     const lo = pv.some(v => v < 10), hi = pv.some(v => v > 90);
-    set("spread", lo && hi ? "Mixed" : lo ? "Typical to low" : hi ? "Typical to high" : "Typical", `${p.join(" / ")} percentile at ${T.map(t => "+" + t).join("/")} h vs. 2023–25 hurricanes`);
+    set("spread", lo && hi ? "Mixed" : lo ? "Typical to low" : hi ? "Typical to high" : "Typical", `${p.join(" / ")} percentile at +24/48/72 h vs. 2023–25 hurricanes`);
     const e = CL.ofcl["24"];
     set("err", "±" + e.p67 + " kt", `2 of 3 NHC forecasts at +24 h were this close (2023–25); 9 of 10 within ±${e.p90}`);
   }
@@ -336,17 +333,10 @@
   function figSpread() {
     const host = document.getElementById("fig-spread"); if (!host) return;
     const els = panels(host, 3);
-    SPREAD_T.forEach((tau, i) => {
+    [24, 48, 72].forEach((tau, i) => {
       const el = els[i];
       const m = { t: 44, r: 14, b: 38, l: 34 };
       const F = frame(el, .7, 210, 260, m);
-      if (!CL.storm[tau]) { // fewer than six core aids reach this lead time
-        F.svg.append("text").attr("class", "ann").attr("x", 12).attr("y", 18).attr("font-weight", 700).text(`+${tau} h`);
-        F.svg.append("text").attr("class", "ann").attr("x", 12).attr("y", 40).text("Fewer than 6 of the 8 core aids");
-        F.svg.append("text").attr("class", "ann").attr("x", 12).attr("y", 56).text("forecast this far ahead this cycle.");
-        F.svg.attr("aria-label", `No spread computed at +${tau} hours: fewer than six core aids have a forecast.`);
-        return;
-      }
       const arr = CL.spread[tau], me = CL.storm[tau].sd, cap = 25;
       const bins = d3.bin().domain([0, cap]).thresholds(d3.range(0, cap, 1))(arr.map(v => Math.min(v, cap - .001)));
       const x = d3.scaleLinear([0, cap], [0, F.iw]), y = d3.scaleLinear([0, d3.max(bins, b => b.length)], [F.ih, 0]).nice();
