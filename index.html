@@ -28,41 +28,41 @@
   </header>
 
   <div class="hero">
-    <p class="stamp">NHC model cycle 00Z Fri 9 Oct 2026 · central Gulf of Mexico</p>
+    <p class="stamp">NHC model cycle 06Z Fri 9 Oct 2026 · north-central Gulf of Mexico</p>
     <h1>Isaias, model by model</h1>
     <p class="dek">Physics-based, statistical and AI models are all forecasting the same Gulf hurricane. This page shows where they agree, where they split, and whether the split is unusual. It uses NOAA's public model file and three seasons of verification.</p>
   </div>
 
   <div class="readout" aria-label="Summary">
-    <div data-ro="peak"><span class="k">NHC official peak</span><span class="v">100 kt</span><span class="n">Cat 3 · +12 h</span></div>
-    <div data-ro="range"><span class="k">Model aids at +24 h</span><span class="v">69–88 kt</span><span class="n">Cat 1 to Cat 2</span></div>
-    <div data-ro="spread"><span class="k">Core-model disagreement</span><span class="v">Typical</span><span class="n">vs. 2023–25 hurricanes</span></div>
+    <div data-ro="peak"><span class="k">NHC official peak</span><span class="v">105 kt</span><span class="n">Cat 3 · +12 h</span></div>
+    <div data-ro="range"><span class="k">Model aids at +24 h</span><span class="v">43–82 kt</span><span class="n">TS to Cat 1</span></div>
+    <div data-ro="spread"><span class="k">Core-model disagreement</span><span class="v">Typical to low</span><span class="n">vs. 2023–25 hurricanes</span></div>
     <div data-ro="err"><span class="k">Typical NHC error, +24 h</span><span class="v">±10 kt</span><span class="n">2023–25</span></div>
   </div>
 
   <section id="guidance">
     <div class="prose">
       <h2>The guidance</h2>
-      <p>Nearly every model agrees on the shape. Isaias strengthens for about 12 hours, then weakens fast after +24 h as NHC's track takes the center inland over the north-central Gulf coast. NHC's track is just offshore at +24 h and inland by +36 h. The models disagree on two numbers: how strong the storm is at the coast, and how fast it falls apart over land.</p>
-      <p>This cycle the early aids and NHC's official forecast all start from the same 85 kt at 00Z, so Fig. 1 has no starting offset to correct for. NHC's peak of 100 kt at +12 h is just above every aid at that time, the highest being HAFS-A at 99 kt. NHC's 03Z advisory raised the intensity to 90 kt, citing Hurricane Hunter Doppler radar winds.</p>
+      <p>Nearly every model agrees on the shape. Isaias strengthens for about 12 hours, then weakens fast after landfall. NHC's track is offshore at +12 h and inland by +24 h. NHC's discussion gives "a high-end category 2 intensity at landfall." The models disagree on two numbers: how strong the storm is at the coast, and how fast it falls apart over land.</p>
+      <p>This cycle the early aids and NHC's official forecast all start from 90 kt at 06Z. NHC's peak of 105 kt at +12 h is well above every aid at that time: the highest are HAFS-A and LGEM, at 93 kt. NHC's discussion explains the reasoning: the storm "could continue to intensify for the next 12 hours or so" over very warm water before "a large increase in shear" weakens it, and "it would only take about a 6h delay in the onset of the shear to bring a stronger hurricane than expected onshore."</p>
     </div>
     <div class="toggles" id="toggles" aria-label="Show or hide model families"></div>
     <figure>
       <div class="chart" id="fig-intensity"></div>
-      <figcaption><span class="figno">FIG 1</span><b>Maximum sustained wind (1-min, kt) forecast by each model aid, from 00Z Friday.</b> Left of zero is the observed intensity from NHC's operational best track. The grey shading around the NHC forecast covers the range that contained two-thirds (darker) and nine-tenths (lighter) of NHC's official intensity errors in 2023–2025, verified for this page against final best tracks. Hover or tap a line to identify it.</figcaption>
+      <figcaption><span class="figno">FIG 1</span><b>Maximum sustained wind (1-min, kt) forecast by each model aid, from 06Z Friday.</b> Left of zero is the observed intensity from NHC's operational best track. The grey shading around the NHC forecast covers the range that contained two-thirds (darker) and nine-tenths (lighter) of NHC's official intensity errors in 2023–2025, verified for this page against final best tracks. Hover or tap a line to identify it.</figcaption>
     </figure>
   </section>
 
   <section id="so-far">
     <div class="prose">
       <h2>What has already verified</h2>
-      <p>Isaias sat nearly stationary in the Bay of Campeche for about two days, first as a weak disturbance and then as a depression. It then turned east-northeast and intensified rapidly, from 35 kt at 06Z Wednesday to 70 kt at 06Z Thursday. That is 35 kt in 24 hours. It reached 85 kt by 18Z Thursday in NHC's operational best track and held there at 00Z Friday. NHC has since revised the 12Z Thursday intensity from 70 to 75 kt; the scores below use the revised best track. Early on, the models disagreed about both the turn and the intensification. Some moved the system east quickly and strengthened it. Others kept it slow, weak and farther south. Those forecasts can now be checked against NHC's best track.</p>
+      <p>Isaias sat nearly stationary in the Bay of Campeche for about two days, first as a weak disturbance and then as a depression. It then turned east-northeast and intensified rapidly, from 35 kt at 06Z Wednesday to 70 kt at 06Z Thursday. That is 35 kt in 24 hours. In NHC's operational best track it reached 85 kt at 00Z Friday and 90 kt at 06Z Friday. NHC has revised earlier points since they were first posted (12Z Thursday from 70 to 75 kt, 18Z Thursday from 85 to 80 kt); the scores below use the latest best track. Early on, the models disagreed about both the turn and the intensification. Some moved the system east quickly and strengthened it. Others kept it slow, weak and farther south. Those forecasts can now be checked against NHC's best track.</p>
       <h3>Track and timing: Google DeepMind and NHC</h3>
-      <p>The 00Z Wednesday runs, made 48 h before Friday's 00Z position, show who handled the turn. <span class="fam" style="color:var(--f-ai)">DeepMind</span>'s raw run placed the center 18 nmi from where it was. That is the closest of any aid with its own track, for the third run in a row: the 12Z and 18Z Tuesday runs were 6 and 19 nmi off. NHC's official forecast from 00Z Wednesday was 58 nmi off. The raw <span class="fam" style="color:var(--f-regional)">HAFS-A</span> and HAFS-B runs missed by 120 and 112 nmi. Single runs vary, which is why the averages below matter more. Over every forecast so far that all the aids below share, the interpolated DeepMind aid has the smallest average track error, 18 nmi, and NHC is next at 20 nmi.</p>
+      <p>The 06Z Wednesday runs, made 48 h before Friday's 06Z position, show who handled the turn. <span class="fam" style="color:var(--f-ai)">DeepMind</span>'s raw run, the corrected consensus (HCCA) and NHC's official forecast all placed the center 19 nmi from where it was. Scored against the latest best track, raw DeepMind has been the closest aid with its own track at two days for the three runs before that as well (12Z and 18Z Tuesday, 00Z Wednesday: 6, 13 and 21 nmi). The raw <span class="fam" style="color:var(--f-regional)">HAFS-A</span> and HAFS-B runs from 06Z Wednesday missed by 152 and 139 nmi. Single runs vary, which is why the averages below matter more. Over every forecast so far that all the aids below share, the interpolated DeepMind aid has the smallest average track error, 16 nmi, and NHC is next at 17 nmi. NHC's 4 AM discussion describes its track forecast as "very near the Google DeepMind guidance, which has been very accurate for Isaias."</p>
       <h3>Intensity: the consensus, COAMPS-TC, DeepMind and NHC</h3>
-      <p>The same raw 00Z Wednesday DeepMind run forecast 86 kt for 00Z Friday, against 85 kt in the best track. The raw HAFS-A run was next closest, at 83 kt. The raw HAFS-B run had 96 kt and the Navy's <span class="fam" style="color:var(--f-regional)">COAMPS-TC</span> 104 kt. Across the shared forecasts, the smallest intensity errors belong to the corrected consensus (HCCA), COAMPS-TC, DeepMind, NHC and the neural-network consensus (NNIC), all between 4 and 6 kt.</p>
+      <p>The same raw 06Z Wednesday DeepMind run forecast 90 kt for 06Z Friday, matching the best track exactly, as did the corrected consensus. The raw HWRF run was next, at 87 kt. The raw HAFS-A and HAFS-B runs had 78 and 76 kt, and the Navy's <span class="fam" style="color:var(--f-regional)">COAMPS-TC</span> 96 kt. Across the shared forecasts, the smallest intensity errors belong to the corrected consensus (HCCA), DeepMind, NHC and the neural-network consensus (NNIC), between 3.7 and 5.5 kt.</p>
       <h3>What missed</h3>
-      <p>Nearly every aid was too slow to intensify Isaias. Every aid in the table except COAMPS-TC has a low bias. The <span class="fam" style="color:var(--f-global)">global models</span> ran the lowest, as expected at their resolution, and the <span class="fam" style="color:var(--f-stat)">statistical</span> LGEM was 16 kt low. Two days out, the raw GFS and its ensemble mean put the center 93 and 151 nmi from where it was. COAMPS-TC, the best interpolated physics model on intensity, had the largest track error of the regional models.</p>
+      <p>Nearly every aid was too slow to intensify Isaias. Every aid in the table except COAMPS-TC has a low bias. The <span class="fam" style="color:var(--f-global)">global models</span> ran the lowest, as expected at their resolution, and the <span class="fam" style="color:var(--f-stat)">statistical</span> LGEM was 14 kt low. Two days out, the raw GFS and its ensemble mean put the center 77 and 134 nmi from where it was. COAMPS-TC had the largest track error of the regional models.</p>
     </div>
     <div class="scroll">
       <table class="data">
@@ -93,40 +93,40 @@
     </div>
     <figure>
       <div class="grid3" id="fig-split"></div>
-      <figcaption><span class="figno">FIG 2</span><b>Each dot is one model aid, grouped by how the model works.</b> +24 h is NHC's last forecast point over water, just offshore, and +36 h and +48 h are inland in NHC's track. The DeepMind aid has no +48 h value this cycle. Shaded columns are Saffir-Simpson categories.</figcaption>
+      <figcaption><span class="figno">FIG 2</span><b>Each dot is one model aid, grouped by how the model works.</b> All three times are after landfall in NHC's track: the center is inland at +24 h. The DeepMind aid has no +48 h value this cycle. Shaded columns are Saffir-Simpson categories.</figcaption>
     </figure>
     <div class="prose">
-      <h3>At the peak, the storm-scale physics models run highest</h3>
-      <p>At +12 h, near the forecast peak, the <span class="fam" style="color:var(--f-regional)">regional physics</span> models span 93–99 kt, with HAFS-A highest. The <span class="fam" style="color:var(--f-global)">global physics</span> models sit between 79 and 89 kt. Regional hurricane models follow the storm with nested grids (about 2 km for HAFS) that can resolve the eyewall. Global models, with grid spacings of about 10 km or more, cannot, and they usually run weak at the peak.</p>
-      <h3>Near the coast, the order changes</h3>
-      <p>By +24 h, with NHC's center just offshore, the regional models have weakened to 74–84 kt. The <span class="fam" style="color:var(--f-stat)">statistical</span> aids (85–88 kt) and the Canadian ensemble mean (87 kt) are now the highest, and the interpolated <span class="fam" style="color:var(--f-ai)">DeepMind</span> aid the lowest, at 69 kt. NHC's 85 kt is at the upper end. NHC's discussion expects shear to "increase considerably on Friday and cause some weakening before landfall."</p>
-      <h3>Over land, the AI aid weakens fastest and the coarse global models slowest</h3>
-      <p>At +36 h the DeepMind aid (GDMI) is at 25 kt, its last forecast point, and the regional physics models are at 37–45 kt. The GFS is at 44 kt. The UK global model and the Canadian ensemble mean are still at 58 and 70 kt, and the deterministic Canadian run (CMC2, not plotted) is at 71 kt. SHIPS, a statistical model with no land in it by design, holds 67 kt. Its land-aware version, Decay-SHIPS, drops to 48 kt. The 19 kt between those two is the land effect as that statistical scheme models it, which makes the pair a useful control.</p>
-      <p class="note">Some of the intensity spread is really track spread. A model that brings the center ashore earlier, or moves it farther inland, also weakens it earlier. At +36 h HAFS-A puts the center at 31.9°N 88.8°W and the DeepMind aid at 31.9°N 87.0°W, about 170 km apart. HAFS-A is at 41 kt there and the DeepMind aid at 25 kt (Fig. 4).</p>
+      <h3>At the peak, the regional and statistical models run highest, and NHC above them all</h3>
+      <p>At +12 h, near the forecast peak and still over water, the <span class="fam" style="color:var(--f-regional)">regional physics</span> models span 87–93 kt, with HAFS-A highest. The <span class="fam" style="color:var(--f-stat)">statistical</span> LGEM is also at 93 kt, and the <span class="fam" style="color:var(--f-global)">global physics</span> models are at 90–92 kt. Every aid is between 85 and 93 kt, a narrow range. NHC's 105 kt sits 12 kt above it, for the reasons NHC gives above.</p>
+      <h3>Inland, the order changes</h3>
+      <p>By +24 h, with every aid's center inland, the regional models have dropped to 43–54 kt and the interpolated <span class="fam" style="color:var(--f-ai)">DeepMind</span> aid to 51 kt. The Canadian ensemble mean (82 kt), the UK global model (71 kt) and the GEFS mean (72 kt) are much higher. NHC is at 65 kt.</p>
+      <h3>Over land, the coarse global models weaken slowest</h3>
+      <p>At +24 h SHIPS, a statistical model with no land in it by design, holds 72 kt. Its land-aware version, Decay-SHIPS, is at 61 kt. The 11 kt between those two is the land effect as that statistical scheme models it, which makes the pair a useful control. By +36 h the DeepMind aid is at 17 kt, its last forecast point, and the regional models at 18–30 kt. The UK model and Canadian ensemble mean are still at 55 and 66 kt.</p>
+      <p class="note">This cycle the spread is not mainly track spread. At +24 h every plotted aid has the center within 30.6–31.4°N and 87.1–88.2°W, yet their intensities range from 43 to 82 kt. Much of the disagreement is in how each model weakens a hurricane over land.</p>
     </div>
   </section>
 
   <section id="deepmind">
     <div class="prose">
-      <h2>Why the AI line sits low: an adjustment step</h2>
+      <h2>The AI line on spaghetti plots: an adjustment step</h2>
       <p>The DeepMind line on most spaghetti plots is GDMI, an interpolated aid. The raw model output (GDMN) arrives too late for the forecast cycle it would serve. NHC therefore takes the previous run and adjusts it to the storm's intensity at the start time.</p>
-      <p>For Isaias, the raw 18Z DeepMind run went from its 76 kt starting value to 98 kt at 00Z, six hours later. The best-track intensity at 00Z is 85 kt, and the aids were adjusted to that 85 kt. After the adjustment, the 00Z aid runs 8–13 kt below the raw run at 0, +12 and +24 h, and 3 kt below it at +36 h, where both end. The raw run peaks at 99 kt at +12 h, close to NHC's 100 kt. The raw run started high in each of the last three cycles: 82 kt against 75 kt in the revised best track (12Z), 106 kt against 85 kt (18Z) and now 98 kt against 85 kt. In each, the interpolated aid sits below the raw model.</p>
+      <p>For Isaias, the raw 00Z DeepMind run forecast 87 kt for 06Z, against 90 kt in the best track, a close start. The aids were adjusted to 90 kt. After the adjustment, the 06Z aid runs 3 kt above the raw run at 0 h, 9 kt below it at +12 h and 5 kt above it at +24 h, small differences in both directions. The raw run peaks at 94 kt at +12 h, below NHC's 105 kt. In the three cycles before this one the raw run started well above the observed intensity, by 7 to 26 kt against the latest best track, and the adjustment pulled the interpolated aid down. This cycle it barely changed it.</p>
     </div>
     <figure>
       <div class="chart" id="fig-gdm"></div>
-      <figcaption><span class="figno">FIG 3</span><b>Google DeepMind's raw 18Z forecast (dashed) and the interpolated 00Z aid (solid), shown in the same valid times.</b> The 18Z run is shifted 6 h so both lines share the 00Z clock. Every aid ending in "I" or "2" goes through this adjustment. The adjustment changes the result most when a model's short-range forecast misses the observed intensity.</figcaption>
+      <figcaption><span class="figno">FIG 3</span><b>Google DeepMind's raw 00Z forecast (dashed) and the interpolated 06Z aid (solid), shown in the same valid times.</b> The 00Z run is shifted 6 h so both lines share the 06Z clock. Every aid ending in "I" or "2" goes through this adjustment. The adjustment changes the result most when a model's short-range forecast misses the observed intensity.</figcaption>
     </figure>
-    <p class="note warn col">"AI is less aggressive" is partly an artifact of this adjustment. Compare raw and interpolated output before drawing conclusions about any model class.</p>
+    <p class="note warn col">"AI is less aggressive" can be partly an artifact of this adjustment, as it was in earlier cycles. Compare raw and interpolated output before drawing conclusions about any model class.</p>
   </section>
 
   <section id="tracks">
     <div class="prose">
       <h2>Tracks set the timing</h2>
-      <p>Intensity forecasts over land depend on when and where the center crosses the coast. The tracks below cluster tightly toward the Alabama and western Florida Panhandle coast. At +36 h every plotted aid has the center inland, between 31.9°N and 32.6°N and between 87.0°W and 88.8°W. NHC's discussion says its track lies "closer to the right side of the guidance envelope, very near the latest corrected consensus (HCCA)." Their small east–west and timing differences explain part of the +36 to +48 h intensity spread.</p>
+      <p>Intensity forecasts over land depend on when and where the center crosses the coast. The tracks below cluster tightly toward the Alabama and western Florida Panhandle coast. At +24 h every plotted aid has the center inland, between 30.6°N and 31.4°N and between 87.1°W and 88.2°W. NHC's discussion says its forecast track is "very near the Google DeepMind guidance." Small east–west and timing differences remain, but this cycle they explain less of the intensity spread than how each model handles land.</p>
     </div>
     <figure>
       <div class="chart" id="fig-map"></div>
-      <figcaption><span class="figno">FIG 4</span><b>Track forecasts to +72 h from the 00Z cycle, colored by model family.</b> The heavy line is NHC's official track, labeled every 12 h with its forecast intensity. Black is the observed track. Statistical and machine-learning aids are left off because they use another model's track. This is not the NHC cone. For the official forecast and warnings, use <a href="https://www.nhc.noaa.gov" target="_blank" rel="noopener">nhc.noaa.gov</a>.</figcaption>
+      <figcaption><span class="figno">FIG 4</span><b>Track forecasts to +72 h from the 06Z cycle, colored by model family.</b> The heavy line is NHC's official track, labeled every 12 h with its forecast intensity. Black is the observed track. Statistical and machine-learning aids are left off because they use another model's track. This is not the NHC cone. For the official forecast and warnings, use <a href="https://www.nhc.noaa.gov" target="_blank" rel="noopener">nhc.noaa.gov</a>.</figcaption>
     </figure>
   </section>
 
@@ -134,8 +134,8 @@
     <div class="prose">
       <h2>Is this disagreement unusual?</h2>
       <p class="answer">Not among the core models. The split comes from the models outside that core.</p>
-      <p>We took eight aids that ran in every season from 2023 to 2025: HAFS-A, HAFS-B, HWRF, HMON, COAMPS-TC, GFS, Decay-SHIPS and LGEM. For every Atlantic forecast cycle that started at hurricane strength, we computed their spread, the standard deviation across models. By that measure, Isaias's disagreement is ordinary at +24, +48 and +72 h (31st, 34th and 43rd percentiles).</p>
-      <p>Isaias stands out once the other models come back in. Adding the UK global model, the Canadian ensemble mean and SHIPS raises the +48 h spread from <span id="wide48" class="mono">7.1 kt to 13.2 kt</span>. (The DeepMind aid is normally in this comparison too, but it has no +48 h value this cycle.) That figure uses a different set of models, so it can't be compared to the histograms. It does show where the disagreement comes from: models that treat land very differently.</p>
+      <p>We took eight aids that ran in every season from 2023 to 2025: HAFS-A, HAFS-B, HWRF, HMON, COAMPS-TC, GFS, Decay-SHIPS and LGEM. For every Atlantic forecast cycle that started at hurricane strength, we computed their spread, the standard deviation across models. By that measure, Isaias's disagreement is ordinary at +24 and +48 h (57th and 38th percentiles). At +72 h it is low, in the 2nd percentile, but only six of the eight core models reach +72 h, and all have the storm far inland and weak. Spread in knots shrinks over land (see the Fig. 5 caption).</p>
+      <p>Isaias stands out once the other models come back in. Adding the UK global model, the Canadian ensemble mean and SHIPS raises the +48 h spread from <span id="wide48" class="mono">7.5 kt to 13.9 kt</span>. (The DeepMind aid is normally in this comparison too, but it has no +48 h value this cycle.) That figure uses a different set of models, so it can't be compared to the histograms. It does show where the disagreement comes from: models that treat land very differently.</p>
     </div>
     <figure>
       <div class="grid3" id="fig-spread"></div>
@@ -146,12 +146,12 @@
   <section id="ensemble">
     <div class="prose">
       <h2>The ensemble view</h2>
-      <p>NOAA's global ensemble (GEFS) runs 31 versions of the GFS, each with slightly perturbed starting conditions and model physics. At this resolution its intensities are much too weak. At 18Z the members started between 60 and 85 kt against an observed 85 kt, so read the plume for timing, not strength. On the 00Z clock, 19 of the 31 members weaken fastest between +24 and +36 h, and all 31 lose at least 15 kt in that window. It spans 00Z to 12Z Saturday (7 PM Friday to 7 AM Saturday CDT), consistent with NHC's forecast landfall late Friday or early Saturday. That is independent evidence that the timing of the move inland is fairly well constrained.</p>
+      <p>NOAA's global ensemble (GEFS) runs 31 versions of the GFS, each with slightly perturbed starting conditions and model physics. At this resolution its intensities are much too weak. At 00Z the members started between 47 and 65 kt against an observed 85 kt, so read the plume for timing, not strength. On the 06Z clock, 18 of the 31 members weaken fastest between +12 and +24 h, and 30 of the 31 lose at least 15 kt in that window. It spans 18Z Friday to 06Z Saturday (1 PM Friday to 1 AM Saturday CDT), consistent with NHC's forecast landfall tonight or early Saturday. That is independent evidence that the timing of the move inland is fairly well constrained.</p>
       <p class="small">The European (ECMWF) model and ensemble are not in NOAA's public model file, so they are not shown. Google's model is itself an ensemble, but the public file carries one forecast per cycle.</p>
     </div>
     <figure>
       <div class="chart" id="fig-gefs"></div>
-      <figcaption><span class="figno">FIG 6</span><b>GEFS intensity, 18Z Thursday run: 30 perturbed members plus the control, shifted to the 00Z clock.</b> These are raw values with no adjustment to the observed intensity.</figcaption>
+      <figcaption><span class="figno">FIG 6</span><b>GEFS intensity, 00Z Friday run: 30 perturbed members plus the control, shifted to the 06Z clock.</b> These are raw values with no adjustment to the observed intensity.</figcaption>
     </figure>
   </section>
 
@@ -160,7 +160,7 @@
       <h2>Scored after landfall</h2>
       <p>Each version of this page, one per NHC model cycle, is committed to a <a href="https://github.com/LukeMcCulloch/static_hurricane_info_site/commits/main">public repository</a> before landfall, and the commit history timestamps it. After the storm, each aid will be scored against NHC's best track from +12 to +72 h, on the questions this storm raises:</p>
       <ul>
-        <li>Did NHC's 100 kt peak, just above every aid, verify, or did the lower aids?</li>
+        <li>Did NHC's 105 kt peak, well above every aid, verify, or did the aids?</li>
         <li>Did Isaias weaken over land as fast as the DeepMind aid predicted, or as slowly as the UK and Canadian models?</li>
         <li>Was the raw DeepMind run (GDMN) closer than its interpolated version (GDMI)?</li>
       </ul>
@@ -173,6 +173,7 @@
       <h2>Earlier versions</h2>
       <p class="small">This page is updated as new NHC model cycles arrive. Each earlier version is preserved unchanged.</p>
       <ul id="snapshot-list" class="small">
+        <li><a href="snapshots/2026100900/">00Z Fri 9 Oct 2026</a></li>
         <li><a href="snapshots/2026100818/">18Z Thu 8 Oct 2026</a></li>
         <li><a href="snapshots/2026100812/">12Z Thu 8 Oct 2026</a> (first version)</li>
       </ul>
@@ -188,8 +189,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script src="data/current.js"></script>
+<script src="data/al092026_2026100906.js"></script>
 <script src="data/al092026_2026100900.js"></script>
-<script src="data/al092026_2026100818.js"></script>
 <script src="data/climatology.js"></script>
 <script src="assets/app.js"></script>
 </body>
