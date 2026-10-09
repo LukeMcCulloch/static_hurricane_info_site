@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-09T00:45:00Z",
+  "read": "2026-10-09T03:46:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -96,15 +96,15 @@
           "effective": "Thu 8 Oct, noon",
           "by": "Escambia County",
           "quote": "Evacuation orders have been issued for Zone A and Zone B effective Thursday, Oct. 8 at noon.",
-          "source": "https://myescambia.com/news/news-article/2026/10/08/escambia-county-hurricane-isaias-update",
-          "source_label": "Escambia County update, 8 Oct 2026"
+          "source": "https://myescambia.com/news/news-article/2026/10/09/escambia-county-hurricane-isaias-update-2",
+          "source_label": "Escambia County Update #2, 8 Oct 2026 (evening)"
         }
       ],
       "notes": [
         "The notice does not say whether the order is mandatory or voluntary. Ask the county."
       ],
       "shelters": [
-        "Shelters opened Thu 8 Oct, 3 PM. Locations: https://myescambia.com/stormcenter"
+        "Shelters are open. Locations: https://myescambia.com/stormcenter", "Free ECAT transportation to shelters resumes Fri 9 Oct, 6 AM, and runs as long as weather allows (it paused at 8 PM Thursday)."
       ]
     },
     {
