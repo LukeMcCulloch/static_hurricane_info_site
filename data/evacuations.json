@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-09T18:46:00Z",
+  "read": "2026-10-09T19:46:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -27,7 +27,7 @@
           "where": "Coastal areas, and flood-prone and low-lying communities",
           "effective": "Not stated on the county page",
           "by": "Baldwin County",
-          "quote": "A voluntary evacuation is now in effect for: • Coastal areas • Flood-prone and low-lying communities",
+          "quote": "A voluntary evacuation is now in effect for: â€¢ Coastal areas â€¢ Flood-prone and low-lying communities",
           "source": "https://www.baldwincountyal.gov/services/ema/baldwin-county-updates",
           "source_label": "Baldwin County EMA storm updates"
         }
@@ -36,7 +36,7 @@
         "The county page's headline reads \"Mandatory Evacuation for all Areas South of Intracoastal Waterway\". The order itself, and the Governor's proclamation, cover non-residents, tourists and visitors only.",
         "Baldwin County EMA also lists Fort Morgan among the communities covered by the mandatory order.",
         "Baldwin County EMA's 9 Oct update: \"All bridges accessing Gulf Shores and Orange Beach are closing at noon today.\" It restates the same voluntary and mandatory evacuations.",
-        "The same 9 Oct update repeats \"Baldwin County Shelter – Opens Today at 3 PM\"; the county's earlier notice said the Coliseum shelter opened Thursday 8 Oct at 3 PM. Call the EMA to confirm.",
+        "The same 9 Oct update repeats \"Baldwin County Shelter â€“ Opens Today at 3 PM\"; the county's earlier notice said the Coliseum shelter opened Thursday 8 Oct at 3 PM. Call the EMA to confirm.",
         "Baldwin County's page does not define which \"coastal areas\" the voluntary evacuation covers. Its evacuation information page links the county's evacuation zone maps. Call the EMA to ask about a specific address."
       ],
       "shelters": [
@@ -172,7 +172,7 @@
         "An update on the same page, as of 10:30 AM 8 Oct, words the resident order as covering \"residents living in Zones A and B\" without \"coastal areas\".",
         "The page gives the shelter opening as both \"Thursday, October 8\" and \"Thursday, October 9\" in different places. Thursday is 8 October; check with the county.",
         "County Water & Sewer is shutting off drinking water mains and sewage lift stations on Okaloosa Island starting at 12 PM Fri 9 Oct (county update, 9 AM 9 Oct).",
-        "County update, 12:30 PM 9 Oct: \"Bridges close at 40MPH sustained winds- this is a DOT decision and executed by FHP. This is not a County decision and we can’t tell you when that’s going to happen.\""
+        "County update, 12:30 PM 9 Oct: \"Bridges close at 40MPH sustained winds- this is a DOT decision and executed by FHP. This is not a County decision and we canâ€™t tell you when thatâ€™s going to happen.\""
       ],
       "shelters": [
         "Davidson Middle School, 6261 Old Bethel Rd, Crestview (general, special needs, pet-friendly) and the Raider Arena, Northwest Florida State College, 100 E College Blvd, Niceville. Listed as opening Thursday 6 PM."
@@ -183,9 +183,10 @@
     "title": "Supplemental proclamation by the Governor of Alabama, 8 October 2026: I. Mandatory evacuation of coastal tourists and visitors",
     "source": "https://governor.alabama.gov/wp-content/uploads/2026/10/2026-10-08-SOE-First-Supplemental-Hurricane-Isaias.pdf",
     "release": "https://governor.alabama.gov/newsroom/2026/10/governor-ivey-urges-alabamians-to-prepare-for-hurricane-isaias-provides-update/",
+    "later": "On 9 Oct the Governor issued a Second Supplemental State of Emergency for Hurricane Isaias (PDF posted 1:56 PM CDT: https://governor.alabama.gov/wp-content/uploads/2026/10/2026-10-09-SOE-Second-Supplemental-Hurricane-Isaias.pdf). This page has not read it yet, so it may change or add to the orders on this page. Open the PDF or call your county EMA.",
     "text": [
       "Effective today, October 8, 2026, at 2:30 p.m. CDT, all non-residents, tourists, and visitors in the covered areas shall immediately evacuate themselves from the covered areas until the state of emergency expires or this order is modified in writing.",
-      "For purposes of this provision, “covered areas” means (1) all locations in Baldwin County south of the Gulf Intracoastal Waterway, including the City of Gulf Shores and the City of Orange Beach, and (2) all of Zone 1 in Mobile County, including all of Dauphin Island and parts of Bayou La Batre."
+      "For purposes of this provision, â€œcovered areasâ€ means (1) all locations in Baldwin County south of the Gulf Intracoastal Waterway, including the City of Gulf Shores and the City of Orange Beach, and (2) all of Zone 1 in Mobile County, including all of Dauphin Island and parts of Bayou La Batre."
     ]
   }
 }

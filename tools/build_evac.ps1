@@ -78,7 +78,9 @@ W @"
 "@
 
 # Summary table.
-W '  <section id="summary"><div class="prose"><h2>At a glance</h2></div>'
+W '  <section id="summary"><div class="prose"><h2>At a glance</h2>'
+if ($ev.proclamation.later) { W "<p class=""note warn"">$(Link $ev.proclamation.later)</p>" }
+W '</div>'
 W '  <div class="scroll"><table class="data fc"><thead><tr><th>County</th><th>Orders in effect</th></tr></thead><tbody>'
 foreach ($j in $ev.jurisdictions) {
   $cells = ($j.orders | ForEach-Object { "<span class=""chip$(if (@('mandatory', 'order') -contains $_.type) { ' warn' })""><b>$(Esc $typeLabel[$_.type])</b></span> <span class=""small"">$(Esc $_.who): $(Esc $_.where)</span>" }) -join '<br>'
@@ -109,6 +111,7 @@ W '  <section id="proclamation"><div class="prose">'
 W "<h2>The Alabama order, in full</h2><p class=""small"">$(Esc $p.title). The operative text, as signed:</p>"
 foreach ($t in $p.text) { W "<blockquote class=""q"">$(Esc $t)</blockquote>" }
 W "<p class=""small""><a href=""$(Esc $p.source)"">Signed proclamation (PDF)</a> · <a href=""$(Esc $p.release)"">Governor's press release</a>. The press release names only Dauphin Island in Mobile County; the proclamation covers all of Zone 1.</p>"
+if ($p.later) { W "<p class=""note warn"">$(Link $p.later)</p>" }
 W '  </div></section>'
 
 # NWS.
