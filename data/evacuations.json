@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-08T22:46:00Z",
+  "read": "2026-10-09T00:45:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -123,8 +123,8 @@
           "effective": "Thu 8 Oct, 12:30 PM",
           "by": "Santa Rosa County",
           "quote": "An evacuation order, effective at 12:30 p.m. on Thursday, October 8, has been issued for Zones A and B, low-lying areas and mobile homes in Santa Rosa County.",
-          "source": "https://www.santarosa.fl.gov/CivicAlerts.aspx?AID=2199",
-          "source_label": "Santa Rosa County Update #3, 8 Oct 2026"
+          "source": "https://www.santarosa.fl.gov/CivicAlerts.aspx?AID=2200",
+          "source_label": "Santa Rosa County Update #4, 8 Oct 2026, 6:45 PM"
         }
       ],
       "notes": [
