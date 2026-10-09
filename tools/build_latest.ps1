@@ -425,7 +425,7 @@ W @"
 # Key values for the Mobile Bay / Fairhope area, compared with the last build so the update job can judge
 # whether the local forecast changed materially. Printed as "field: old -> new".
 function ZoneVal([string]$sec, [string]$pat) { if ($zoneSec.Contains($sec)) { ($zoneSec[$sec] | Where-Object { $_ -match $pat } | Select-Object -First 1) } else { '' } }
-$surgeMB = ''; if ($hazards.Contains('STORM SURGE')) { foreach ($p in $hazards['STORM SURGE']) { if ($p.List) { $surgeMB = ($p.List | Where-Object { $_ -match '^Mobile Bay' }) -join '' } } }
+$surgeMB = ''; if ($hazards.Contains('STORM SURGE')) { foreach ($p in $hazards['STORM SURGE']) { if ($p.List) { $surgeMB = ($p.List | Where-Object { $_ -match '^(Lower |Upper )?Mobile Bay' }) -join '; ' } } }
 $state = [ordered]@{
   nhc_advisory = $tcpTitle; nhc_max_wind = $summary['MAXIMUM SUSTAINED WINDS']
   nhc_track = (($fc | Where-Object { $_.Pos } | ForEach-Object { "$($_.Tau) $($_.Pos) $($_.Kt)kt" }) -join '; ')
