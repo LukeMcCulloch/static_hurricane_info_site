@@ -74,7 +74,10 @@ $tcm = Get-Product 'TCM' $Bin $Storm
 $tcpTitle = ($tcp.Lines | Where-Object { $_ -match 'Advisory Number' } | Select-Object -First 1).Trim()
 $stormName = if ($tcpTitle -match '^(.*?) (Intermediate )?(Public )?Advisory') { $Matches[1] } else { 'Isaias' }
 $tcpHead = Between $tcp.Lines '^\d{3,4} (AM|PM) [A-Z]{3} ' '^SUMMARY OF'
-$headlines = @(((($tcpHead | ForEach-Object { $_.Trim() }) -join ' ') -split '\.\.\.\s*\.\.\.') | ForEach-Object { $_.Trim(' ', '.') } | Where-Object { $_ })
+# Lines before the first "..." headline are a correction notice (e.g. "Corrected storm surge values"), shown separately.
+$tcpNote = ''; $hl = @(); $inHead = $false
+foreach ($l in $tcpHead) { $t = $l.Trim(); if ($t -match '^\.\.\.') { $inHead = $true }; if ($inHead) { $hl += $t } elseif ($t) { $tcpNote = ($tcpNote + ' ' + $t).Trim() } }
+$headlines = @((($hl -join ' ') -split '\.\.\.\s*\.\.\.') | ForEach-Object { $_.Trim(' ', '.') } | Where-Object { $_ })
 $summary = [ordered]@{}
 $tcpTitle = $tcpTitle -replace '\s+', ' '
 foreach ($l in (Between $tcp.Lines '^SUMMARY OF' '^WATCHES AND WARNINGS')) { if ($l -match '^(ABOUT) (.+)$' -or $l -match '^([A-Z ]+?)\.\.\.(.+)$') { $k = $Matches[1]; if ($summary.Contains($k)) { $summary[$k] += '; ' + $Matches[2].Trim() } else { $summary[$k] = $Matches[2].Trim() } } }
@@ -268,6 +271,7 @@ W @"
     <p class="stamp">Page built $(Esc (Stamp $built)) · NHC $(Esc $tcpTitle)</p>
     <h1>$(Esc $stormName): the latest</h1>
 "@
+if ($tcpNote) { W "    <p class=""note warn small"">NHC note on this advisory: $(Esc $tcpNote)</p>" }
 foreach ($h in $headlines) { W "    <p class=""headline"">$(Esc $h)</p>" }
 W '  </div>'
 
