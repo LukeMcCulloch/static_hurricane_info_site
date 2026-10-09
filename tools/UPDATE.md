@@ -45,7 +45,8 @@ Separate from the analysis above, and NWS-only: no model data, no derived number
 1. `powershell -ExecutionPolicy Bypass -File tools/build_latest.ps1 -Root <repo path>`. It fetches the
    current NHC and NWS Mobile products, rebuilds `latest.html`, saves the raw text to `data/raw/nws/`,
    and prints `CHANGED <field>` lines against `data/latest_state.json`.
-2. If the only change in `latest.html` is the "Page built" stamp, discard it (`git checkout latest.html`).
+2. If the only change in `latest.html` is the "Page built" stamp (or the NHC graphic links, which NHC
+   re-posts about hourly for the same advisory; older links keep working), discard it (`git checkout latest.html`).
 3. Otherwise check the page against the raw products line by line (numbers, times, areas), check it
    at phone and desktop widths, then commit `Update latest NWS page (<products>)` and push.
 4. A `CHANGED` line for the Fairhope zone (wind, surge, rain, tornado), Mobile Bay surge, the Mobile
