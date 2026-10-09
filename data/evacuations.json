@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-09T03:46:00Z",
+  "read": "2026-10-09T14:46:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -119,12 +119,12 @@
         {
           "type": "order",
           "who": "Not stated (the notice names the areas only)",
-          "where": "Zones A and B, low-lying areas and mobile homes",
-          "effective": "Thu 8 Oct, 12:30 PM",
+          "where": "Zones A, B and C, low-lying areas and mobile homes",
+          "effective": "Zones A and B: Thu 8 Oct, 12:30 PM. Zone C: Fri 9 Oct, 8 AM",
           "by": "Santa Rosa County",
-          "quote": "An evacuation order, effective at 12:30 p.m. on Thursday, October 8, has been issued for Zones A and B, low-lying areas and mobile homes in Santa Rosa County.",
-          "source": "https://www.santarosa.fl.gov/CivicAlerts.aspx?AID=2200",
-          "source_label": "Santa Rosa County Update #4, 8 Oct 2026, 6:45 PM"
+          "quote": "An evacuation order, effective at 8 a.m. on Friday, October 9, has been issued for Zone C in addition to Zones A and B, as well as low-lying areas and mobile homes in Santa Rosa County.",
+          "source": "https://www.santarosa.fl.gov/CivicAlerts.aspx?AID=2201",
+          "source_label": "Santa Rosa County update, 9 Oct 2026, 8:15 AM"
         }
       ],
       "notes": [
@@ -167,7 +167,8 @@
       "notes": [
         "The page also links the county's evacuation orders for residents and for visitors as separate documents; those documents were not opened for this page.",
         "An update on the same page, as of 10:30 AM 8 Oct, words the resident order as covering \"residents living in Zones A and B\" without \"coastal areas\".",
-        "The page gives the shelter opening as both \"Thursday, October 8\" and \"Thursday, October 9\" in different places. Thursday is 8 October; check with the county."
+        "The page gives the shelter opening as both \"Thursday, October 8\" and \"Thursday, October 9\" in different places. Thursday is 8 October; check with the county.",
+        "County Water & Sewer is shutting off drinking water mains and sewage lift stations on Okaloosa Island starting at 12 PM Fri 9 Oct (county update, 9 AM 9 Oct)."
       ],
       "shelters": [
         "Davidson Middle School, 6261 Old Bethel Rd, Crestview (general, special needs, pet-friendly) and the Raider Arena, Northwest Florida State College, 100 E College Blvd, Niceville. Listed as opening Thursday 6 PM."
