@@ -96,7 +96,7 @@ foreach ($j in $ev.jurisdictions) {
     W "<p class=""small"">Source: <a href=""$(Esc $o.source)"">$(Esc $o.source_label)</a></p></article>"
   }
   W '  </div><div class="prose">'
-  if ($j.notes) { W '<ul class="small">'; foreach ($n in $j.notes) { W "<li>$(Esc $n)</li>" }; W '</ul>' }
+  if ($j.notes) { W '<ul class="small">'; foreach ($n in $j.notes) { W "<li>$(Link $n)</li>" }; W '</ul>' }
   if ($j.shelters) { W '<h3>Shelters and transport</h3><ul>'; foreach ($s in $j.shelters) { W "<li>$(Link $s)</li>" }; W '</ul>' }
   $tel = $j.phone -replace '[^\d]', ''
   W "<p class=""chips""><a class=""chip"" href=""tel:+1$tel""><b>Call</b> $(Esc $j.phone_label): $(Esc $j.phone)</a> <a class=""chip"" href=""$(Esc $j.zones_url)""><b>Evacuation zones</b> and county updates</a></p>"

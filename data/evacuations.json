@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-09T14:46:00Z",
+  "read": "2026-10-09T15:46:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -128,7 +128,8 @@
         }
       ],
       "notes": [
-        "The county's notice gives the Milton shelter's opening as \"8 a.m. on Friday, October 8\". Friday is 9 October; check with the county."
+        "The county's notice gives the Milton shelter's opening as \"8 a.m. on Friday, October 8\". Friday is 9 October; check with the county.",
+        "Water service to all of Navarre Beach is being shut off at 12 PM Fri 9 Oct; the county asks people not to return as soon as winds subside (Update #5, 9:45 AM 9 Oct: https://www.santarosa.fl.gov/CivicAlerts.aspx?AID=2202)."
       ],
       "shelters": [
         "Clyde L. Gracey (Milton) Community Center, 5629 Byrom St., Milton; pet-friendly. Transportation to a shelter: 850-983-4636 (only while winds are below tropical-storm force)."
