@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-09T15:46:00Z",
+  "read": "2026-10-09T17:46:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -35,6 +35,8 @@
       "notes": [
         "The county page's headline reads \"Mandatory Evacuation for all Areas South of Intracoastal Waterway\". The order itself, and the Governor's proclamation, cover non-residents, tourists and visitors only.",
         "Baldwin County EMA also lists Fort Morgan among the communities covered by the mandatory order.",
+        "Baldwin County EMA's 9 Oct update: \"All bridges accessing Gulf Shores and Orange Beach are closing at noon today.\" It restates the same voluntary and mandatory evacuations.",
+        "The same 9 Oct update repeats \"Baldwin County Shelter – Opens Today at 3 PM\"; the county's earlier notice said the Coliseum shelter opened Thursday 8 Oct at 3 PM. Call the EMA to confirm.",
         "Baldwin County's page does not define which \"coastal areas\" the voluntary evacuation covers. Its evacuation information page links the county's evacuation zone maps. Call the EMA to ask about a specific address."
       ],
       "shelters": [
