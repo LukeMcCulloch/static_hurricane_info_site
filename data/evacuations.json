@@ -1,6 +1,6 @@
 {
   "note": "Hand-curated from official government pages; rendered by tools/build_evac.ps1. Each item quotes its source exactly (short quotes; the proclamation in full) and records when it was read. Re-check every source each update run; never infer an order that a source does not state.",
-  "read": "2026-10-09T17:46:00Z",
+  "read": "2026-10-09T18:46:00Z",
   "jurisdictions": [
     {
       "id": "baldwin",
@@ -171,7 +171,8 @@
         "The page also links the county's evacuation orders for residents and for visitors as separate documents; those documents were not opened for this page.",
         "An update on the same page, as of 10:30 AM 8 Oct, words the resident order as covering \"residents living in Zones A and B\" without \"coastal areas\".",
         "The page gives the shelter opening as both \"Thursday, October 8\" and \"Thursday, October 9\" in different places. Thursday is 8 October; check with the county.",
-        "County Water & Sewer is shutting off drinking water mains and sewage lift stations on Okaloosa Island starting at 12 PM Fri 9 Oct (county update, 9 AM 9 Oct)."
+        "County Water & Sewer is shutting off drinking water mains and sewage lift stations on Okaloosa Island starting at 12 PM Fri 9 Oct (county update, 9 AM 9 Oct).",
+        "County update, 12:30 PM 9 Oct: \"Bridges close at 40MPH sustained winds- this is a DOT decision and executed by FHP. This is not a County decision and we can’t tell you when that’s going to happen.\""
       ],
       "shelters": [
         "Davidson Middle School, 6261 Old Bethel Rd, Crestview (general, special needs, pet-friendly) and the Raider Arena, Northwest Florida State College, 100 E College Blvd, Niceville. Listed as opening Thursday 6 PM."
